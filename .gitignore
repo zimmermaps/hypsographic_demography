@@ -15,3 +15,4 @@ hypsographic_demography_download/
 *.aux.xml
 *.env
 .env
+.vscode.vscode/
