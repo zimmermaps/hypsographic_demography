@@ -16,3 +16,4 @@ hypsographic_demography_download/
 *.env
 .env
 .vscode.vscode/
+.vscode/
