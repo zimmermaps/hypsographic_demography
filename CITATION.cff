@@ -1,10 +1,10 @@
 cff-version: 1.2.0
-title: "Hypsographic Demography: Age and Change in Population by Altitude"
-message: "Please cite the manuscript and Dataset S1 if you use this repository."
-type: dataset
+message: "If you use this repository, please cite it using the metadata below."
+title: "Hypsographic Demography Revisited: Analysis Code and Reproducible Workflows"
+type: software
 authors:
-  - family-names: "TBD"
-    given-names: "TBD"
-repository-code: "https://github.com/USER/REPOSITORY"
+  - family-names: Zimmer
+    given-names: Andrew
+repository-code: "https://github.com/zimmermaps/hypsographic_demography"
 date-released: "2026-05-25"
 version: "0.1.0"
