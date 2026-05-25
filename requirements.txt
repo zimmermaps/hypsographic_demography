@@ -1,0 +1,9 @@
+pandas==3.0.3
+numpy==2.4.5
+matplotlib==3.10.9
+pillow==12.2.0
+jupyterlab==4.5.7
+ipykernel==7.2.0
+nbformat==5.10.4
+nbclient==0.10.4
+pyarrow==24.0.0

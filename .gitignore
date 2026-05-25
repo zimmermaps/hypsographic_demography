@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+raw_data/
+tmp/
+scratch/
+local_archive/
+*_local_archive/
+hypsographic_demography_download/
+*.zip
+*.tif
+*.tiff
+*.vrt
+*.aux.xml
+*.env
+.env
