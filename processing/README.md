@@ -1,21 +1,29 @@
 # Processing Workflow
 
-These scripts document the upstream workflow used to build Dataset S1. They are intentionally lightweight and are not a packaged processing system.
+The files in this directory are provenance scripts for the paper, not a complete production pipeline. They record the data-preparation steps used to make Dataset S1 and keep the manuscript repository understandable without carrying the large gridded workflow.
 
-Full processing requires large public source datasets that are not included in this repository:
+The full extraction was developed in the archived/source processing repository and requires large public source datasets that are not included here:
 
 - WorldPop Global 2 annual age-sex population rasters.
 - GMTED2010 mean elevation at 30 arc-second resolution.
 - GHS-SMOD R2023A settlement-class rasters.
 - Country boundary layers used in the full source workflow.
 
-The figure notebook does not need these inputs. It reads `data/dataset_s1_hypsographic_demography.csv`.
+The figure notebook does not need those files. It reads `data/dataset_s1_hypsographic_demography.csv` and reproduces the two manuscript figures directly.
 
-## Order
+## What the scripts are
 
-1. `01_prepare_static_layers.py`: align elevation to the WorldPop grid and assign elevation bands.
-2. `02_extract_population_by_grid.py`: summarize WorldPop age-sex population by aligned grid attributes.
-3. `03_prepare_settlement_attribution.py`: prepare GHS-SMOD settlement classes for static_2025 and dynamic attribution.
-4. `04_build_analysis_tables.py`: aggregate the aligned grid summaries into Dataset S1.
+These scripts are deliberately minimal. They are meant to document the sequence of operations, key definitions, and analysis choices for this paper. They should be read as executable notes or pseudocode-style provenance, not as a turnkey geospatial processing system.
 
-The complete production pipeline lives in the full processing source repository. These scripts are a readable record of the parts used for this paper only.
+## Workflow order
+
+1. `01_prepare_static_layers.py`: documents alignment of GMTED2010 elevation to the WorldPop grid, meter rounding, native elevation bands, and the six manuscript elevation groups.
+2. `02_extract_population_by_grid.py`: documents extraction of WorldPop annual age-sex population by aligned grid attributes and aggregation to `0-14`, `15-64`, and `65+`.
+3. `03_prepare_settlement_attribution.py`: documents GHS-SMOD alignment, the six settlement classes, static_2025 attribution for the main figures, and dynamic attribution for the diagnostic comparison.
+4. `04_build_analysis_tables.py`: checks the materialized Dataset S1 and summarizes the logical tables used by the reproduction notebook.
+
+## Why this is lightweight
+
+The manuscript figures use already aggregated analysis tables. Re-running the full raster workflow would require hundreds of source rasters, grid templates, and intermediate files that are too large for this repository. Keeping only the compact Dataset S1 plus these provenance scripts makes figure reproduction simple while still documenting how the analysis-ready tables were built.
+
+For full production reruns, start from the archived/source processing repository and the raw WorldPop, GMTED2010, and GHS-SMOD inputs listed in `config_notes.md`.

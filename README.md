@@ -1,5 +1,8 @@
 # Hypsographic Demography: Age and Change in Population by Altitude
 
+[![License](https://img.shields.io/badge/license-MIT%20%2B%20CC%20BY%204.0-blue.svg)](LICENSE.md)
+[![Citation](https://img.shields.io/badge/citation-CITATION.cff-green.svg)](CITATION.cff)
+
 This repository supports the manuscript **"Hypsographic Demography: Age and Change in Population by Altitude."**
 
 It contains the analysis-ready data used to generate the two main figures, a notebook to reproduce those figures, and lightweight processing scripts documenting how the analysis tables were created from public gridded population, elevation, and settlement datasets.

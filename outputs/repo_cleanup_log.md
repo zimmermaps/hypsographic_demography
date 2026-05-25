@@ -4,7 +4,7 @@ This repository was reduced to the materials needed for the PNAS-style hypsograp
 
 Kept:
 
-- Dataset S1 and dictionary in `data/`.
+- Dataset S1 in `data/`, with column definitions documented in `data/README.md`.
 - The final figure reproduction notebook in `notebooks/01_reproduce_figures.ipynb`.
 - Final PNG/PDF figures in `outputs/figures/`.
 - Final figure and manuscript-value tables in `outputs/tables/`.
