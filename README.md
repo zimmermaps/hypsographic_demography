@@ -15,14 +15,6 @@ It contains the analysis-ready data used to generate the two main figures, a not
   <img src="outputs/figures/main_fig02_elevation_settlement_static2025_final.png" alt="Elevation and settlement summaries" width="100%">
 </p>
 
-## Scope
-
-The repository is intentionally narrow. It covers:
-
-- population by elevation,
-- broad age structure by elevation,
-- modeled population change from 2015 to 2025,
-- elevation-by-settlement summaries using GHS-SMOD classes.
 
 ## Repository contents
 
