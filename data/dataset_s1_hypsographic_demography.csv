@@ -389,7 +389,7 @@ figure2_elevation_settlement,static_2025,2025.0,,<100 m,1,Peri-urban,3.0,,male_s
 figure2_elevation_settlement,static_2025,2025.0,,<100 m,1,Semi-dense urban,4.0,,male_share,50.21107648942859,percent,"Male population as a share of total population, 2025."
 figure2_elevation_settlement,static_2025,2025.0,,<100 m,1,Dense urban,5.0,,male_share,50.2447165394874,percent,"Male population as a share of total population, 2025."
 figure2_elevation_settlement,static_2025,2025.0,,<100 m,1,Urban centre,6.0,,male_share,50.29858627032895,percent,"Male population as a share of total population, 2025."
-figure2_elevation_settlement,static_2025,2025.0,,100-499 m,2,Low-density rural,1.0,,male_share,50.405431107932756,percent,"Male population as a share of total population, 2025."
+figure2_elevation_settlement,static_2025,2025.0,,100-499 m,2,Low-density rural,1.0,,male_share,50.40543110793275,percent,"Male population as a share of total population, 2025."
 figure2_elevation_settlement,static_2025,2025.0,,100-499 m,2,Rural cluster,2.0,,male_share,50.34292002740104,percent,"Male population as a share of total population, 2025."
 figure2_elevation_settlement,static_2025,2025.0,,100-499 m,2,Peri-urban,3.0,,male_share,50.46279533828399,percent,"Male population as a share of total population, 2025."
 figure2_elevation_settlement,static_2025,2025.0,,100-499 m,2,Semi-dense urban,4.0,,male_share,50.42278316472121,percent,"Male population as a share of total population, 2025."
@@ -404,10 +404,10 @@ figure2_elevation_settlement,static_2025,2025.0,,500-1499 m,3,Urban centre,6.0,,
 figure2_elevation_settlement,static_2025,2025.0,,1500-2499 m,4,Low-density rural,1.0,,male_share,49.99795962256656,percent,"Male population as a share of total population, 2025."
 figure2_elevation_settlement,static_2025,2025.0,,1500-2499 m,4,Rural cluster,2.0,,male_share,49.9992235567572,percent,"Male population as a share of total population, 2025."
 figure2_elevation_settlement,static_2025,2025.0,,1500-2499 m,4,Peri-urban,3.0,,male_share,49.776997827963854,percent,"Male population as a share of total population, 2025."
-figure2_elevation_settlement,static_2025,2025.0,,1500-2499 m,4,Semi-dense urban,4.0,,male_share,49.706913851591636,percent,"Male population as a share of total population, 2025."
+figure2_elevation_settlement,static_2025,2025.0,,1500-2499 m,4,Semi-dense urban,4.0,,male_share,49.70691385159163,percent,"Male population as a share of total population, 2025."
 figure2_elevation_settlement,static_2025,2025.0,,1500-2499 m,4,Dense urban,5.0,,male_share,50.12424413075463,percent,"Male population as a share of total population, 2025."
 figure2_elevation_settlement,static_2025,2025.0,,1500-2499 m,4,Urban centre,6.0,,male_share,49.82551174383349,percent,"Male population as a share of total population, 2025."
-figure2_elevation_settlement,static_2025,2025.0,,2500-3499 m,5,Low-density rural,1.0,,male_share,49.679093526119004,percent,"Male population as a share of total population, 2025."
+figure2_elevation_settlement,static_2025,2025.0,,2500-3499 m,5,Low-density rural,1.0,,male_share,49.67909352611901,percent,"Male population as a share of total population, 2025."
 figure2_elevation_settlement,static_2025,2025.0,,2500-3499 m,5,Rural cluster,2.0,,male_share,49.9304521228998,percent,"Male population as a share of total population, 2025."
 figure2_elevation_settlement,static_2025,2025.0,,2500-3499 m,5,Peri-urban,3.0,,male_share,49.132147240634914,percent,"Male population as a share of total population, 2025."
 figure2_elevation_settlement,static_2025,2025.0,,2500-3499 m,5,Semi-dense urban,4.0,,male_share,49.36256333769784,percent,"Male population as a share of total population, 2025."
@@ -418,4 +418,88 @@ figure2_elevation_settlement,static_2025,2025.0,,>=3500 m,6,Rural cluster,2.0,,m
 figure2_elevation_settlement,static_2025,2025.0,,>=3500 m,6,Peri-urban,3.0,,male_share,51.454444912590816,percent,"Male population as a share of total population, 2025."
 figure2_elevation_settlement,static_2025,2025.0,,>=3500 m,6,Semi-dense urban,4.0,,male_share,51.62083537305304,percent,"Male population as a share of total population, 2025."
 figure2_elevation_settlement,static_2025,2025.0,,>=3500 m,6,Dense urban,5.0,,male_share,50.98677931450837,percent,"Male population as a share of total population, 2025."
-figure2_elevation_settlement,static_2025,2025.0,,>=3500 m,6,Urban centre,6.0,,male_share,50.421539724681644,percent,"Male population as a share of total population, 2025."
+figure2_elevation_settlement,static_2025,2025.0,,>=3500 m,6,Urban centre,6.0,,male_share,50.42153972468165,percent,"Male population as a share of total population, 2025."
+figure1_age_contribution,static_2025,2015,,<100 m,1,,,,population_denominator,3255289583.297298,people,2015 total population denominator for Figure 1C contributions.
+figure1_age_contribution,static_2025,,2015-2025,<100 m,1,,,,population_growth,7.935043064584443,percent,Total modeled population growth label shown at the end of each Figure 1C bar.
+figure1_age_contribution,static_2025,2015,,<100 m,1,,,0-14,population,786041117.2023543,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,2025,,<100 m,1,,,0-14,population,764049297.0872445,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,,2015-2025,<100 m,1,,,0-14,absolute_change,-21991820.1151098,people,"Age-class modeled population change, 2015-2025."
+figure1_age_contribution,static_2025,,2015-2025,<100 m,1,,,0-14,contribution_to_total_growth,-0.675571851670234,percentage points,Segment value for Figure 1C: age-class change divided by 2015 total population in the elevation group.
+figure1_age_contribution,static_2025,2015,,<100 m,1,,,15-64,population,2178618262.693261,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,2025,,<100 m,1,,,15-64,population,2345135031.955626,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,,2015-2025,<100 m,1,,,15-64,absolute_change,166516769.26236486,people,"Age-class modeled population change, 2015-2025."
+figure1_age_contribution,static_2025,,2015-2025,<100 m,1,,,15-64,contribution_to_total_growth,5.115267474720306,percentage points,Segment value for Figure 1C: age-class change divided by 2015 total population in the elevation group.
+figure1_age_contribution,static_2025,2015,,<100 m,1,,,65+,population,290630203.4016825,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,2025,,<100 m,1,,,65+,population,404413884.5665805,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,,2015-2025,<100 m,1,,,65+,absolute_change,113783681.16489798,people,"Age-class modeled population change, 2015-2025."
+figure1_age_contribution,static_2025,,2015-2025,<100 m,1,,,65+,contribution_to_total_growth,3.4953474415522185,percentage points,Segment value for Figure 1C: age-class change divided by 2015 total population in the elevation group.
+figure1_age_contribution,static_2025,2015,,100-499 m,2,,,,population_denominator,2473002289.789188,people,2015 total population denominator for Figure 1C contributions.
+figure1_age_contribution,static_2025,,2015-2025,100-499 m,2,,,,population_growth,10.341972497568372,percent,Total modeled population growth label shown at the end of each Figure 1C bar.
+figure1_age_contribution,static_2025,2015,,100-499 m,2,,,0-14,population,672033700.4106543,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,2025,,100-499 m,2,,,0-14,population,686087721.9078779,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,,2015-2025,100-499 m,2,,,0-14,absolute_change,14054021.497223616,people,"Age-class modeled population change, 2015-2025."
+figure1_age_contribution,static_2025,,2015-2025,100-499 m,2,,,0-14,contribution_to_total_growth,0.5682979573149387,percentage points,Segment value for Figure 1C: age-class change divided by 2015 total population in the elevation group.
+figure1_age_contribution,static_2025,2015,,100-499 m,2,,,15-64,population,1588968457.8456843,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,2025,,100-499 m,2,,,15-64,population,1752714028.665667,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,,2015-2025,100-499 m,2,,,15-64,absolute_change,163745570.81998277,people,"Age-class modeled population change, 2015-2025."
+figure1_age_contribution,static_2025,,2015-2025,100-499 m,2,,,15-64,contribution_to_total_growth,6.621327100911876,percentage points,Segment value for Figure 1C: age-class change divided by 2015 total population in the elevation group.
+figure1_age_contribution,static_2025,2015,,100-499 m,2,,,65+,population,212000131.5328491,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,2025,,100-499 m,2,,,65+,population,289957755.88989186,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,,2015-2025,100-499 m,2,,,65+,absolute_change,77957624.35704276,people,"Age-class modeled population change, 2015-2025."
+figure1_age_contribution,static_2025,,2015-2025,100-499 m,2,,,65+,contribution_to_total_growth,3.1523474393421727,percentage points,Segment value for Figure 1C: age-class change divided by 2015 total population in the elevation group.
+figure1_age_contribution,static_2025,2015,,500-1499 m,3,,,,population_denominator,1242716345.748641,people,2015 total population denominator for Figure 1C contributions.
+figure1_age_contribution,static_2025,,2015-2025,500-1499 m,3,,,,population_growth,14.289176963293308,percent,Total modeled population growth label shown at the end of each Figure 1C bar.
+figure1_age_contribution,static_2025,2015,,500-1499 m,3,,,0-14,population,372707871.66807985,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,2025,,500-1499 m,3,,,0-14,population,399062501.9886886,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,,2015-2025,500-1499 m,3,,,0-14,absolute_change,26354630.320608735,people,"Age-class modeled population change, 2015-2025."
+figure1_age_contribution,static_2025,,2015-2025,500-1499 m,3,,,0-14,contribution_to_total_growth,2.1207277437661847,percentage points,Segment value for Figure 1C: age-class change divided by 2015 total population in the elevation group.
+figure1_age_contribution,static_2025,2015,,500-1499 m,3,,,15-64,population,789182173.1674286,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,2025,,500-1499 m,3,,,15-64,population,904732129.1925628,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,,2015-2025,500-1499 m,3,,,15-64,absolute_change,115549956.02513433,people,"Age-class modeled population change, 2015-2025."
+figure1_age_contribution,static_2025,,2015-2025,500-1499 m,3,,,15-64,contribution_to_total_growth,9.298176242747042,percentage points,Segment value for Figure 1C: age-class change divided by 2015 total population in the elevation group.
+figure1_age_contribution,static_2025,2015,,500-1499 m,3,,,65+,population,80826300.91313249,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,2025,,500-1499 m,3,,,65+,population,116495652.36637044,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,,2015-2025,500-1499 m,3,,,65+,absolute_change,35669351.45323795,people,"Age-class modeled population change, 2015-2025."
+figure1_age_contribution,static_2025,,2015-2025,500-1499 m,3,,,65+,contribution_to_total_growth,2.870272977036438,percentage points,Segment value for Figure 1C: age-class change divided by 2015 total population in the elevation group.
+figure1_age_contribution,static_2025,2015,,1500-2499 m,4,,,,population_denominator,387953295.1039886,people,2015 total population denominator for Figure 1C contributions.
+figure1_age_contribution,static_2025,,2015-2025,1500-2499 m,4,,,,population_growth,17.513882388620004,percent,Total modeled population growth label shown at the end of each Figure 1C bar.
+figure1_age_contribution,static_2025,2015,,1500-2499 m,4,,,0-14,population,129590120.11779836,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,2025,,1500-2499 m,4,,,0-14,population,141346840.09154046,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,,2015-2025,1500-2499 m,4,,,0-14,absolute_change,11756719.973742085,people,"Age-class modeled population change, 2015-2025."
+figure1_age_contribution,static_2025,,2015-2025,1500-2499 m,4,,,0-14,contribution_to_total_growth,3.030447252829948,percentage points,Segment value for Figure 1C: age-class change divided by 2015 total population in the elevation group.
+figure1_age_contribution,static_2025,2015,,1500-2499 m,4,,,15-64,population,238935755.2716123,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,2025,,1500-2499 m,4,,,15-64,population,285870013.31154823,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,,2015-2025,1500-2499 m,4,,,15-64,absolute_change,46934258.03993595,people,"Age-class modeled population change, 2015-2025."
+figure1_age_contribution,static_2025,,2015-2025,1500-2499 m,4,,,15-64,contribution_to_total_growth,12.09791452534396,percentage points,Segment value for Figure 1C: age-class change divided by 2015 total population in the elevation group.
+figure1_age_contribution,static_2025,2015,,1500-2499 m,4,,,65+,population,19427419.71457794,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,2025,,1500-2499 m,4,,,65+,population,28682125.52818836,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,,2015-2025,1500-2499 m,4,,,65+,absolute_change,9254705.81361042,people,"Age-class modeled population change, 2015-2025."
+figure1_age_contribution,static_2025,,2015-2025,1500-2499 m,4,,,65+,contribution_to_total_growth,2.3855206104460978,percentage points,Segment value for Figure 1C: age-class change divided by 2015 total population in the elevation group.
+figure1_age_contribution,static_2025,2015,,2500-3499 m,5,,,,population_denominator,56167239.28340188,people,2015 total population denominator for Figure 1C contributions.
+figure1_age_contribution,static_2025,,2015-2025,2500-3499 m,5,,,,population_growth,17.634497173316483,percent,Total modeled population growth label shown at the end of each Figure 1C bar.
+figure1_age_contribution,static_2025,2015,,2500-3499 m,5,,,0-14,population,17980925.27012995,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,2025,,2500-3499 m,5,,,0-14,population,18963290.67414125,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,,2015-2025,2500-3499 m,5,,,0-14,absolute_change,982365.4040113016,people,"Age-class modeled population change, 2015-2025."
+figure1_age_contribution,static_2025,,2015-2025,2500-3499 m,5,,,0-14,contribution_to_total_growth,1.7490006924759125,percentage points,Segment value for Figure 1C: age-class change divided by 2015 total population in the elevation group.
+figure1_age_contribution,static_2025,2015,,2500-3499 m,5,,,15-64,population,35040508.99576253,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,2025,,2500-3499 m,5,,,15-64,population,42493828.40861637,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,,2015-2025,2500-3499 m,5,,,15-64,absolute_change,7453319.412853844,people,"Age-class modeled population change, 2015-2025."
+figure1_age_contribution,static_2025,,2015-2025,2500-3499 m,5,,,15-64,contribution_to_total_growth,13.26986960360787,percentage points,Segment value for Figure 1C: age-class change divided by 2015 total population in the elevation group.
+figure1_age_contribution,static_2025,2015,,2500-3499 m,5,,,65+,population,3145805.017509407,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,2025,,2500-3499 m,5,,,65+,population,4614930.424405666,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,,2015-2025,2500-3499 m,5,,,65+,absolute_change,1469125.4068962592,people,"Age-class modeled population change, 2015-2025."
+figure1_age_contribution,static_2025,,2015-2025,2500-3499 m,5,,,65+,contribution_to_total_growth,2.6156268772326934,percentage points,Segment value for Figure 1C: age-class change divided by 2015 total population in the elevation group.
+figure1_age_contribution,static_2025,2015,,>=3500 m,6,,,,population_denominator,11068280.054239174,people,2015 total population denominator for Figure 1C contributions.
+figure1_age_contribution,static_2025,,2015-2025,>=3500 m,6,,,,population_growth,9.29207760806934,percent,Total modeled population growth label shown at the end of each Figure 1C bar.
+figure1_age_contribution,static_2025,2015,,>=3500 m,6,,,0-14,population,3146668.330207245,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,2025,,>=3500 m,6,,,0-14,population,3083663.706089133,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,,2015-2025,>=3500 m,6,,,0-14,absolute_change,-63004.62411811203,people,"Age-class modeled population change, 2015-2025."
+figure1_age_contribution,static_2025,,2015-2025,>=3500 m,6,,,0-14,contribution_to_total_growth,-0.5692359048502854,percentage points,Segment value for Figure 1C: age-class change divided by 2015 total population in the elevation group.
+figure1_age_contribution,static_2025,2015,,>=3500 m,6,,,15-64,population,7253774.219617107,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,2025,,>=3500 m,6,,,15-64,population,8102966.1528831795,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,,2015-2025,>=3500 m,6,,,15-64,absolute_change,849191.9332660725,people,"Age-class modeled population change, 2015-2025."
+figure1_age_contribution,static_2025,,2015-2025,>=3500 m,6,,,15-64,contribution_to_total_growth,7.672302553826602,percentage points,Segment value for Figure 1C: age-class change divided by 2015 total population in the elevation group.
+figure1_age_contribution,static_2025,2015,,>=3500 m,6,,,65+,population,667837.5044148226,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,2025,,>=3500 m,6,,,65+,population,910123.3677852262,people,Broad age-class population used to compute Figure 1C.
+figure1_age_contribution,static_2025,,2015-2025,>=3500 m,6,,,65+,absolute_change,242285.86337040365,people,"Age-class modeled population change, 2015-2025."
+figure1_age_contribution,static_2025,,2015-2025,>=3500 m,6,,,65+,contribution_to_total_growth,2.1890109590930313,percentage points,Segment value for Figure 1C: age-class change divided by 2015 total population in the elevation group.

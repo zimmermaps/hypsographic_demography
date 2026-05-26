@@ -21,9 +21,21 @@ These scripts are deliberately minimal. They are meant to document the sequence 
 2. `02_extract_population_by_grid.py`: documents extraction of WorldPop annual age-sex population by aligned grid attributes and aggregation to `0-14`, `15-64`, and `65+`.
 3. `03_prepare_settlement_attribution.py`: documents GHS-SMOD alignment, the six settlement classes, static_2025 attribution for the main figures, and dynamic attribution for the diagnostic comparison.
 4. `04_build_analysis_tables.py`: checks the materialized Dataset S1 and summarizes the logical tables used by the reproduction notebook.
+5. `build_dataset_s2_robustness_checks.py`: builds Dataset S2 robustness summaries from Dataset S1 only. It does not use rasters or external downloads.
 
 ## Why this is lightweight
 
 The manuscript figures use already aggregated analysis tables. Re-running the full raster workflow would require hundreds of source rasters, grid templates, and intermediate files that are too large for this repository. Keeping only the compact Dataset S1 plus these provenance scripts makes figure reproduction simple while still documenting how the analysis-ready tables were built.
 
 For full production reruns, start from the archived/source processing repository and the raw WorldPop, GMTED2010, and GHS-SMOD inputs listed in `config_notes.md`.
+
+
+## Dataset S2
+
+Run from the repository root:
+
+```bash
+python processing/build_dataset_s2_robustness_checks.py
+```
+
+The script prints which checks were computed and which were skipped because the required columns or years are not present in Dataset S1.
