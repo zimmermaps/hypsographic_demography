@@ -8,11 +8,11 @@ This repository supports the manuscript **"Hypsographic Demography: Age and Chan
 It contains the analysis-ready data used to generate the two main figures, a notebook to reproduce those figures, and lightweight processing scripts documenting how the analysis tables were created from public gridded population, elevation, and settlement datasets.
 
 <p align="center">
-  <img src="outputs/figures/main_fig01_hypsographic_summary_final.png" alt="Hypsographic demographic summary" width="100%">
+  <img src="outputs/figures/fig1_hypsographic_summary.png" alt="Hypsographic demographic summary" width="100%">
 </p>
 
 <p align="center">
-  <img src="outputs/figures/main_fig02_elevation_settlement_static2025_final.png" alt="Elevation and settlement summaries" width="100%">
+  <img src="outputs/figures/fig2_elevation_settlement_stats.png" alt="Elevation and settlement summaries" width="100%">
 </p>
 
 
