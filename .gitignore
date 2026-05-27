@@ -5,6 +5,7 @@ __pycache__/
 raw_data/
 tmp/
 scratch/
+test/
 local_archive/
 *_local_archive/
 hypsographic_demography_download/
