@@ -1,10 +1,14 @@
 .venv/
 __pycache__/
+**/__pycache__/
 .ipynb_checkpoints/
+*.executed.ipynb
 .DS_Store
+**/.DS_Store
 raw_data/
 tmp/
 scratch/
+_archive_not_public/
 test/
 local_archive/
 *_local_archive/
@@ -16,5 +20,17 @@ hypsographic_demography_download/
 *.aux.xml
 *.env
 .env
-.vscode.vscode/
 .vscode/
+
+# LaTeX build products
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
