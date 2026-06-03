@@ -21,7 +21,6 @@ This repository supports the paper **“Hypsographic Demography Revisited: Age S
 - `outputs/supplementary/dataset_s2/`: sample CSV robustness and sensitivity tables.
 - `data/`: compact derived inputs used by the figure notebook and provided supplementary tables.
 - `processing/`: scripts documenting the derived-table workflow.
-- `scripts/`: utilities for packaging supplementary CSV files.
 
 ## Data sources
 
