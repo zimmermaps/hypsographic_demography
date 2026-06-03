@@ -3,10 +3,6 @@
 The script copies, cleans, and harmonizes selected analysis outputs into
 CSV-only supplementary folders with README files. It does not modify Dataset S1,
 Dataset S2, figures, or intermediate source outputs in place.
-
-Run from the repository root:
-
-    .venv/bin/python scripts/package_supplementary_datasets.py
 """
 
 from __future__ import annotations
@@ -396,7 +392,7 @@ def s2_readme_lines(written: list[dict[str, str]], qc: list[dict[str, object]]) 
         for item in qc
     )
     return [
-        "Dataset S2 contains robustness and sensitivity analyses supporting the elevation-gradient results.",
+        "Dataset S2 contains sample robustness and sensitivity tables supporting the elevation-gradient results.",
         "",
         "Files:",
         files,
@@ -419,7 +415,7 @@ def s2_readme_lines(written: list[dict[str, str]], qc: list[dict[str, object]]) 
         "Quality checks:",
         qc_lines,
         "",
-        "This dataset is intended for robustness and sensitivity analyses, not for main figure source data.",
+        "This dataset is provided as sample supplementary robustness and sensitivity tables, not as main figure source data.",
     ]
 
 

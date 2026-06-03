@@ -18,8 +18,8 @@ This repository supports the paper **“Hypsographic Demography Revisited: Age S
 - `notebooks/01_reproduce_figures.ipynb`: reproduces the two main manuscript figures.
 - `outputs/figures/`: final figures as PNG and PDF.
 - `outputs/supplementary/dataset_s1/`: CSV source data for the main figures and headline values.
-- `outputs/supplementary/dataset_s2/`: CSV robustness and sensitivity tables.
-- `data/`: compact derived inputs used by the figure and supplementary-table workflows.
+- `outputs/supplementary/dataset_s2/`: sample CSV robustness and sensitivity tables.
+- `data/`: compact derived inputs used by the figure notebook and provided supplementary tables.
 - `processing/`: scripts documenting the derived-table workflow.
 - `scripts/`: utilities for packaging supplementary CSV files.
 
@@ -42,3 +42,4 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 jupyter lab notebooks/01_reproduce_figures.ipynb
+```

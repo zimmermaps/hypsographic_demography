@@ -1,7 +1,7 @@
 Supplementary Dataset S2
 ========================
 
-Dataset S2 contains robustness and sensitivity analyses supporting the elevation-gradient results.
+Dataset S2 contains sample robustness and sensitivity tables supporting the elevation-gradient results.
 
 Files:
 - `dataset_s2_primary_robustness_checks.csv`: Primary robustness, highland threshold, and settlement-class sensitivity checks.
@@ -36,4 +36,4 @@ Quality checks:
 - leave-one-country-out highland-minus-lowland remains positive: 5.548414708552908 (target >0 and no reversal; passed=True)
 - country-standardized default country count: 48 (target 48; passed=True)
 
-This dataset is intended for robustness and sensitivity analyses, not for main figure source data.
+This dataset is provided as sample supplementary robustness and sensitivity tables, not as main figure source data.
