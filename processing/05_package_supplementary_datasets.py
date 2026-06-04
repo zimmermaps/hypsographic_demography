@@ -43,7 +43,7 @@ S1_SOURCES = [
     (
         OUTPUT_TABLES / "key_values_for_manuscript.csv",
         S1_DIR / "dataset_s1_key_manuscript_values.csv",
-        "Headline manuscript values derived from Dataset S1.",
+        "Headline manuscript values and companion threshold values used in the paper.",
     ),
 ]
 
@@ -381,7 +381,7 @@ def s1_readme_lines(written: list[dict[str, str]], qc: list[dict[str, object]]) 
         "Quality checks:",
         qc_lines,
         "",
-        "This dataset supports main figures and headline manuscript values only.",
+        "This dataset supports main figures, headline manuscript values, and companion threshold values only.",
     ]
 
 

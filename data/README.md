@@ -1,6 +1,6 @@
 # Data
 
-`dataset_s1_hypsographic_demography.csv` is the analysis-ready dataset used to reproduce the two main manuscript figures. It is a compact, tidy CSV derived from the analysis-ready release tables.
+`dataset_s1_hypsographic_demography.csv` is the analysis-ready dataset used to reproduce the first two main manuscript figures. It is a compact, tidy CSV derived from the analysis-ready release tables.
 
 Rows with `table_name = figure1_elevation_summary` support Figure 1A and 1B: population by elevation and 2025 age composition.
 
@@ -14,6 +14,15 @@ The 2015-2025 values are modeled gridded population change from the input popula
 
 
 `dataset_s2_robustness_checks.csv` contains computed robustness summaries derived from Dataset S1. It reports the primary lowland/highland comparison, exact alternative thresholds that can be assembled from the six manuscript elevation groups, and settlement-class stratified summaries. Checks that require unavailable columns or years are documented in the builder script output and omitted from the CSV.
+
+Additional compact geospatial and integer-elevation inputs support the production Figure 3 map, threshold summaries, and companion animation:
+
+- `country_elevation_group_polygons.geoparquet`: country elevation-zone polygons used as map context.
+- `fig3_highland_change_polygons.geoparquet`: inhabited-highland country elevation-zone polygons with the total 2015-2025 population-change values used for Figure 3.
+- `natural_earth_admin0_110m.geojson`: Natural Earth country boundaries used for Figure 3 borders.
+- `global_integer_elevation_age_sex_2015_2025.parquet`: global population by year, integer elevation, age, sex, and broad age group. The companion notebook uses this compact global-only file to produce `outputs/tables/population_by_elevation_threshold_summary.csv`, `outputs/tables/population_by_elevation_threshold_age_summary.csv`, and `outputs/figures/population_by_elevation_pyramid.gif`.
+
+The integer-elevation parquet file includes `broad_age_group` values for `young_0_14`, `working_age_15_64`, and `old_age_65_plus`; these support reported threshold shares by broad age group.
 
 ## Columns
 

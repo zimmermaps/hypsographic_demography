@@ -9,7 +9,7 @@ The full extraction was developed in the archived/source processing repository a
 - GHS-SMOD R2023A settlement-class rasters.
 - Country boundary layers used in the full source workflow.
 
-The figure notebook does not need those files. It reads `data/dataset_s1_hypsographic_demography.csv` and reproduces the two manuscript figures directly.
+The figure notebook does not need those files. It reads the compact manuscript data products in `data/` and reproduces the three manuscript figures directly.
 
 ## What the scripts are
 
@@ -22,6 +22,7 @@ These scripts are deliberately minimal. They are meant to document the sequence 
 3. `03_prepare_settlement_attribution.py`: documents GHS-SMOD alignment, the six settlement classes, static_2025 attribution for the main figures, and dynamic attribution for the diagnostic comparison.
 4. `04_build_analysis_tables.py`: checks the materialized Dataset S1 and summarizes the logical tables used by the reproduction notebook.
 5. `05_package_supplementary_datasets.py`: packages the public Dataset S1 and sample Dataset S2 CSV folders from the derived table outputs.
+6. `06_plot_fig3_highland_change_map.py`: plots the production Figure 3 inhabited-highland population-change map from country elevation-zone GeoParquet inputs.
 
 ## Why this is lightweight
 

@@ -1,11 +1,16 @@
 metric,value,unit,source_table,note
 "population below 500 m, 2025",6242357720.072887,people,data/dataset_s1_hypsographic_demography.csv,6.24 billion; 76.2% of global population
 "population below 100 m, 2025",3513598213.609451,people,data/dataset_s1_hypsographic_demography.csv,3.51 billion
+"population below 150 m, 2025",4125621374.923416,people,data/global_integer_elevation_age_sex_2015_2025.parquet,4.13 billion; 50.3% of global population
+"population-weighted median elevation, 2025",148.0,meters,data/global_integer_elevation_age_sex_2015_2025.parquet,148 m
+"share of young population below 150 m, 2025",0.4490579828584554,share,outputs/tables/population_by_elevation_threshold_age_summary.csv,44.9%
+"share of working-age population below 150 m, 2025",0.5139363276570575,share,outputs/tables/population_by_elevation_threshold_age_summary.csv,51.4%
+"share of old-age population below 150 m, 2025",0.5655354350516296,share,outputs/tables/population_by_elevation_threshold_age_summary.csv,56.6%
 "population 1500-3500 m, 2025",521971028.4384403,people,data/dataset_s1_hypsographic_demography.csv,0.52 billion
-"youth share below 500 m, 2025",0.23230597860998428,share,data/dataset_s1_hypsographic_demography.csv,23.2%
+"youth share below 500 m, 2025",0.2323059786099842,share,data/dataset_s1_hypsographic_demography.csv,23.2%
 "youth share 1500-3500 m, 2025",0.3071245759468204,share,data/dataset_s1_hypsographic_demography.csv,30.7%
-"growth below 500 m, 2015-2025",0.08974155967883939,share,data/dataset_s1_hypsographic_demography.csv,9.0%
-"growth 1500-3500 m, 2015-2025",0.17529136354488767,share,data/dataset_s1_hypsographic_demography.csv,17.5%
+"growth below 500 m, 2015-2025",0.0897415596788393,share,data/dataset_s1_hypsographic_demography.csv,9.0%
+"growth 1500-3500 m, 2015-2025",0.1752913635448876,share,data/dataset_s1_hypsographic_demography.csv,17.5%
 "population >=3500 m, 2025",12096753.226757538,people,data/dataset_s1_hypsographic_demography.csv,12.1 million; 0.1% of global population
 strongest Figure 2 population cell,1794846736.5257514,people,data/dataset_s1_hypsographic_demography.csv,<100 m / Urban centre
 strongest Figure 2 youth-share cell,0.3489702348152506,share,data/dataset_s1_hypsographic_demography.csv,1500-2499 m / Semi-dense urban; 34.9%

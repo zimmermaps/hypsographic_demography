@@ -7,7 +7,7 @@ Files:
 - `dataset_s1_fig01_population_age_growth.csv`: Fig. 1 population, age composition, and 2015-2025 growth by elevation group.
 - `dataset_s1_fig01_age_contributions.csv`: Fig. 1 age-class contributions to total growth by elevation group.
 - `dataset_s1_fig02_settlement_static2025.csv`: Fig. 2 static-2025 settlement source data by elevation group and settlement class.
-- `dataset_s1_key_manuscript_values.csv`: Headline manuscript values derived from Dataset S1.
+- `dataset_s1_key_manuscript_values.csv`: Headline manuscript values and companion threshold values used in the paper.
 
 Column and unit notes:
 - `population_*` columns are counts of people unless the column name includes `_billions` or `_millions`.
@@ -28,4 +28,4 @@ Quality checks:
 - lowland youth share: 23.2306 (target 23.2; passed=True)
 - >=3,500 m 2025 population: 1.20968e+07 (target 12100000.0; passed=True)
 
-This dataset supports main figures and headline manuscript values only.
+This dataset supports main figures, headline manuscript values, and companion threshold values only.
