@@ -54,9 +54,3 @@ pip install -r requirements.txt
 jupyter lab notebooks/01_reproduce_figures.ipynb
 jupyter lab notebooks/02_population_by_elevation_table_and_gif.ipynb
 ```
-
-To regenerate Figure 3 directly:
-
-```bash
-python processing/06_plot_fig3_highland_change_map.py
-```
