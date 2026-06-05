@@ -4,8 +4,21 @@
 [![Citation](https://img.shields.io/badge/citation-CITATION.cff-green.svg)](CITATION.cff)
 
 <p align="center">
-  <img src="outputs/figures/population_by_elevation_pyramid.gif" alt="Animated 2025 global population pyramid by descending elevation threshold" width="95%">
+  <img src="outputs/figures/population_by_elevation_pyramid.gif" alt="Animated 2025 global population pyramid by descending elevation threshold" width="100%">
 </p>
+
+<table align="center" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td align="center" width="33%"><img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_africa.gif" alt="Africa" width="100%"></td>
+    <td align="center" width="33%"><img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_asia.gif" alt="Asia" width="100%"></td>
+    <td align="center" width="33%"><img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_europe.gif" alt="Europe" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center" width="33%"><img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_north_america.gif" alt="North America" width="100%"></td>
+    <td align="center" width="33%"><img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_oceania.gif" alt="Oceania" width="100%"></td>
+    <td align="center" width="33%"><img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_south_america.gif" alt="South America" width="100%"></td>
+  </tr>
+</table>
 
 This repository supports the manuscript **“Hypsographic Demography Revisited: Age Structure and Population Change by Elevation.”**. It contains compact derived data and figure-reproduction notebooks for the manuscript.
 
