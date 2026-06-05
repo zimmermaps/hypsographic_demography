@@ -23,6 +23,7 @@ These scripts are deliberately minimal. They are meant to document the sequence 
 4. `04_build_analysis_tables.py`: checks the materialized Dataset S1 and summarizes the logical tables used by the reproduction notebook.
 5. `05_package_supplementary_datasets.py`: packages the public Dataset S1 and sample Dataset S2 CSV folders from the derived table outputs.
 6. `06_plot_fig3_highland_change_map.py`: plots the production Figure 3 inhabited-highland population-change map from country elevation-zone GeoParquet inputs.
+7. `07_plot_population_elevation_pyramid_gif.py`: generates the production population-by-elevation companion GIF embedded in the README plus the per-continent GIFs in `outputs/figures/population_by_elevation_continents/`.
 
 ## Why this is lightweight
 
