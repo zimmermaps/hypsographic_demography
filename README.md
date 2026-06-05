@@ -7,22 +7,36 @@
   <img src="outputs/figures/population_by_elevation_pyramid.gif" alt="Animated 2025 global population pyramid by descending elevation threshold" width="100%">
 </p>
 
-<table align="center" cellpadding="0" cellspacing="0" border="0">
-  <tr>
-    <td align="center" width="33%"><img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_africa.gif" alt="Africa" width="100%"></td>
-    <td align="center" width="33%"><img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_asia.gif" alt="Asia" width="100%"></td>
-    <td align="center" width="33%"><img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_europe.gif" alt="Europe" width="100%"></td>
-  </tr>
-  <tr>
-    <td align="center" width="33%"><img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_north_america.gif" alt="North America" width="100%"></td>
-    <td align="center" width="33%"><img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_oceania.gif" alt="Oceania" width="100%"></td>
-    <td align="center" width="33%"><img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_south_america.gif" alt="South America" width="100%"></td>
-  </tr>
-</table>
-
 This repository supports the manuscript **“Hypsographic Demography Revisited: Age Structure and Population Change by Elevation.”**. It contains compact derived data and figure-reproduction notebooks for the manuscript.
 
 Summary statistics show that that **50.3% of the 2025 global population lived at or below 150 m elevation**. By broad age group, the corresponding shares were **44.9%** for ages 0-14, **51.4%** for ages 15-64, and **56.6%** for ages 65+.
+
+<table align="center" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td align="center" width="50%">
+      <img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_africa.gif" alt="Africa" width="100%">
+    </td>
+    <td align="center" width="50%">
+      <img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_asia.gif" alt="Asia" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_europe.gif" alt="Europe" width="100%">
+    </td>
+    <td align="center" width="50%">
+      <img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_north_america.gif" alt="North America" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_oceania.gif" alt="Oceania" width="100%">
+    </td>
+    <td align="center" width="50%">
+      <img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_south_america.gif" alt="South America" width="100%">
+    </td>
+  </tr>
+</table>
 
 ## Repository Contents
 
