@@ -10,6 +10,8 @@ Files:
 - `dataset_s2_concentration_summary.csv`: Top-10 and top-20 country concentration summaries.
 - `dataset_s2_leave_one_country_out.csv`: Leave-one-country-out robustness table.
 - `dataset_s2_leave_one_country_out_summary.csv`: Leave-one-country-out min/max summary.
+- `dataset_s2_country_exclusion_sensitivity.csv`: Targeted full-sample and selected country-exclusion sensitivity table.
+- `dataset_s2_country_exclusion_ingredients.csv`: Compact country/elevation/year ingredients for regenerating the selected country-exclusion sensitivity table.
 - `dataset_s2_leave_one_region_out.csv`: Leave-one-region-out robustness table.
 - `dataset_s2_country_standardized_comparison.csv`: Country-standardized highland-minus-lowland growth comparison.
 - `dataset_s2_worldpop_metadata_status.csv`: WorldPop country source/census metadata provenance for selected highland-growth countries.
@@ -26,9 +28,13 @@ Table notes:
 - The country decomposition compares <500 m lowlands with 1,500-3,500 m inhabited highlands by country.
 - Concentration summaries report top-10 and top-20 cumulative shares by highland population and highland growth.
 - Leave-one-country-out and leave-one-region-out tables recompute the global highland-lowland contrast after removing each unit.
+- The country-exclusion sensitivity table reports the full sample and selected exclusions (ETH, MEX, KEN, YEM, AFG); its compact ingredients table stores the full-sample and selected-country elevation-year totals needed to regenerate those rows without bundling the large analysis-ready parquet source.
 - The country-standardized comparison includes countries with at least 100,000 people in both zones in 2025 by default.
 - The WorldPop metadata-status table reports fields extracted from the official Global 2 R2025A v1 census/source workbook and uses `not_available` where values are not listed.
 - These tables support robustness and sensitivity checks; they do not provide pixel-level uncertainty intervals.
+
+Rebuild note:
+- Run `python processing/build_dataset_s2_country_exclusion_sensitivity.py` from the repository root to regenerate `dataset_s2_country_exclusion_sensitivity.csv` from the compact ingredients table. If the larger static-2025 analysis-ready parquet is available one directory above the repository, the script refreshes the ingredients from that source first.
 
 Quality checks:
 - top 10 highland growth concentration: 75.71740032464037 (target 75.7; passed=True)

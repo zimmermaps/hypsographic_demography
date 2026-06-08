@@ -25,6 +25,7 @@ FIG = ROOT / "outputs" / "figures"
 INPUT_POPULATION_BY_ELEVATION = DATA / "fact_population_by_integer_elevation_age_sex_2015_2025.parquet"
 OUT_GIF = FIG / "population_by_elevation_pyramid.gif"
 OUT_CONTINENT_DIR = FIG / "population_by_elevation_continents"
+OUT_CONTINENT_PANEL_GIF = OUT_CONTINENT_DIR / "population_by_elevation_pyramid_continents_6panel.gif"
 
 YEAR = 2025
 YEAR_COL = "year"
@@ -69,6 +70,14 @@ TEXT_COLOR = "#111111"
 LINE_COLOR = "#2F3A3D"
 SHADE_COLOR = ZISSOU_TEAL
 CONTINENT_ORDER = ["Africa", "Asia", "Europe", "North America", "Oceania", "South America"]
+CONTINENT_COLORS = {
+    "Africa": "#FF6B35",
+    "Asia": "#00A6D6",
+    "Europe": "#9B7CFF",
+    "North America": "#FF2D95",
+    "Oceania": "#39B54A",
+    "South America": "#F5B700",
+}
 
 
 mpl.rcParams.update(
@@ -382,6 +391,224 @@ def render_gif(data: dict, out_gif: Path, title: str, x_max: float | None = None
     print(f"Saved {out_gif.relative_to(ROOT)}")
 
 
+def get_pyramid_values(data: dict, threshold: int) -> tuple[np.ndarray, np.ndarray]:
+    row = data["cum"].loc[int(threshold)]
+    age_order = data["age_order"]
+    male = np.array([row.get((age, "Male"), 0) for age in age_order], dtype=float)
+    female = np.array([row.get((age, "Female"), 0) for age in age_order], dtype=float)
+    return male, female
+
+
+def render_continent_panel_gif(continent_data: dict[str, dict], out_gif: Path) -> None:
+    """Render the continent companion animation as one six-panel figure."""
+    thresholds = make_descending_thresholds()
+    out_gif.parent.mkdir(parents=True, exist_ok=True)
+
+    print(f"GIF: {out_gif.relative_to(ROOT)}")
+    print(f"Frames: {len(thresholds):,}; duration: {len(thresholds) / FPS:.1f} s")
+
+    continents = [continent for continent in CONTINENT_ORDER if continent in continent_data]
+    continents.extend(sorted(set(continent_data) - set(continents)))
+    if len(continents) != 6:
+        raise ValueError(f"Expected six continents for the panel GIF, found {len(continents)}: {continents}")
+
+    fig = plt.figure(figsize=(17.2, 8.4))
+    gs = GridSpec(2, 4, width_ratios=[1, 1, 1, 1.32], wspace=0.24, hspace=0.34, figure=fig)
+    axes = [fig.add_subplot(gs[row, col]) for row in range(2) for col in range(3)]
+    ax_cdf = fig.add_subplot(gs[:, 3])
+    fig.subplots_adjust(top=0.84, left=0.055, right=0.985, bottom=0.11)
+    fig.text(
+        0.5,
+        0.975,
+        "Hypsographic Demography: Population by Elevation (2025)",
+        ha="center",
+        va="top",
+        fontsize=18,
+        fontweight="bold",
+        color=TEXT_COLOR,
+    )
+    threshold_title = fig.text(0.5, 0.932, "", ha="center", va="top", fontsize=15, color=TEXT_COLOR)
+
+    def draw_frame(i):
+        threshold = int(thresholds[i])
+        threshold_title.set_text(f"Population below {threshold:,.0f} m")
+
+        for ax_i, (ax, continent) in enumerate(zip(axes, continents)):
+            data = continent_data[continent]
+            continent_color = CONTINENT_COLORS.get(continent, LINE_COLOR)
+            male, female = get_pyramid_values(data, threshold)
+            cdf = data["cdf"]
+            cdf_row = cdf.loc[cdf["elevation_m"].eq(threshold)]
+            cum_pop = float(cdf_row["cum_below"].iloc[0])
+            cum_frac = float(cdf_row["cum_frac"].iloc[0]) * 100.0
+
+            ax.clear()
+            ax.set_axisbelow(True)
+            ax.grid(
+                True,
+                which="major",
+                axis="x",
+                linestyle="--",
+                linewidth=0.48,
+                color=GRID_COLOR,
+                alpha=0.75,
+                zorder=0,
+            )
+            ax.barh(
+                data["ypos"],
+                -data["full_male"],
+                height=0.82,
+                color=MALE_COLOR,
+                alpha=0.12,
+                edgecolor="none",
+                zorder=2,
+            )
+            ax.barh(
+                data["ypos"],
+                data["full_female"],
+                height=0.82,
+                color=FEMALE_COLOR,
+                alpha=0.12,
+                edgecolor="none",
+                zorder=2,
+            )
+            ax.barh(
+                data["ypos"],
+                -male,
+                height=0.58,
+                color=MALE_COLOR,
+                alpha=0.96,
+                edgecolor=AXIS_COLOR,
+                linewidth=0.18,
+                zorder=3,
+            )
+            ax.barh(
+                data["ypos"],
+                female,
+                height=0.58,
+                color=FEMALE_COLOR,
+                alpha=0.96,
+                edgecolor=AXIS_COLOR,
+                linewidth=0.18,
+                zorder=3,
+            )
+            ax.axvline(0, color=AXIS_COLOR, linewidth=0.72, zorder=4)
+            ax.set_title(continent, fontsize=13, color=continent_color, fontweight="bold", pad=7)
+            ax.set_yticks(data["ypos"])
+            if ax_i % 3 == 0:
+                ax.set_yticklabels(data["age_order"])
+                ax.set_ylabel("Age group", fontsize=11.5)
+            else:
+                ax.tick_params(axis="y", labelleft=False)
+            if ax_i >= 3:
+                ax.set_xlabel("Population", fontsize=11.5)
+            plot_xmax = data["xmax"]
+            ax.set_xlim(-plot_xmax, plot_xmax)
+            ax.xaxis.set_major_locator(MaxNLocator(nbins=5, steps=[1, 2, 2.5, 5, 10], symmetric=True))
+            ax.xaxis.set_major_formatter(FuncFormatter(fmt_population))
+            ax.tick_params(axis="both", labelsize=9.8)
+            ax.text(
+                0.02,
+                0.965,
+                f"{fmt_population(cum_pop)} ({cum_frac:.1f}%)",
+                transform=ax.transAxes,
+                ha="left",
+                va="top",
+                fontsize=10.2,
+                color=TEXT_COLOR,
+                bbox={"facecolor": "white", "alpha": 0.82, "edgecolor": "none", "pad": 1.4},
+            )
+            if ax_i == 0:
+                ax.text(
+                    0.965,
+                    0.965,
+                    "Female",
+                    transform=ax.transAxes,
+                    ha="right",
+                    va="top",
+                    fontsize=9.4,
+                    fontweight="bold",
+                    color="white",
+                    bbox={"facecolor": FEMALE_COLOR, "edgecolor": "none", "pad": 2.2},
+                )
+                ax.text(
+                    0.965,
+                    0.875,
+                    "Male",
+                    transform=ax.transAxes,
+                    ha="right",
+                    va="top",
+                    fontsize=9.4,
+                    fontweight="bold",
+                    color="white",
+                    bbox={"facecolor": MALE_COLOR, "edgecolor": "none", "pad": 2.2},
+                )
+            tidy_axes(ax)
+            for spine in ax.spines.values():
+                spine.set_color(continent_color)
+                spine.set_linewidth(1.65)
+
+        ax_cdf.clear()
+        ax_cdf.set_axisbelow(True)
+        ax_cdf.set_xlim(0, 100)
+        ax_cdf.set_ylim(MIN_ELEV_M, MAX_ELEV_M * 1.04)
+        ax_cdf.set_yscale("symlog", linthresh=SYMLINTHRESH_M)
+        ax_cdf.yaxis.set_major_locator(FixedLocator(Y_TICKS_M))
+        ax_cdf.yaxis.set_major_formatter(FuncFormatter(fmt_elevation))
+        draw_elevation_bands(ax_cdf)
+        ax_cdf.grid(True, which="major", linestyle="--", linewidth=0.55, color=GRID_COLOR, alpha=0.72, zorder=1)
+        for continent in continents:
+            data = continent_data[continent]
+            cdf = data["cdf"]
+            continent_color = CONTINENT_COLORS.get(continent, LINE_COLOR)
+            cdf_row = cdf.loc[cdf["elevation_m"].eq(threshold)]
+            cum_frac = float(cdf_row["cum_frac"].iloc[0]) * 100.0
+            ax_cdf.plot(
+                cdf["cum_frac"] * 100,
+                cdf["elevation_m"],
+                color=continent_color,
+                linewidth=2.35,
+                alpha=0.95,
+                label=continent,
+                zorder=3,
+            )
+            ax_cdf.scatter(
+                [cum_frac],
+                [threshold],
+                s=56,
+                color=continent_color,
+                edgecolor=AXIS_COLOR,
+                linewidth=0.75,
+                zorder=5,
+            )
+        ax_cdf.axhline(threshold, color=AXIS_COLOR, linewidth=0.85, alpha=0.5, linestyle="--", zorder=4)
+        ax_cdf.set_title("Elevation profile", fontsize=13, color=TEXT_COLOR, fontweight="bold", pad=7)
+        ax_cdf.set_xlabel("Cumulative population\nbelow threshold (%)", fontsize=11.5)
+        ax_cdf.set_ylabel("Elevation threshold (m, log scale)", fontsize=11.5)
+        ax_cdf.tick_params(axis="both", labelsize=9.8)
+        ax_cdf.text(
+            0.04,
+            0.985,
+            f"{threshold:,.0f} m",
+            transform=ax_cdf.transAxes,
+            ha="left",
+            va="top",
+            fontsize=10.5,
+            color=TEXT_COLOR,
+            bbox={"facecolor": "white", "alpha": 0.82, "edgecolor": "none", "pad": 1.4},
+        )
+        ax_cdf.legend(loc="lower right", fontsize=9, frameon=True, framealpha=0.9, edgecolor="#CCCCCC")
+        tidy_axes(ax_cdf)
+
+        return []
+
+    anim = FuncAnimation(fig, draw_frame, frames=len(thresholds), interval=1000 / FPS, blit=False)
+    anim.save(out_gif, writer=PillowWriter(fps=FPS), dpi=DPI)
+    plt.close(fig)
+
+    print(f"Saved {out_gif.relative_to(ROOT)}")
+
+
 def main() -> None:
     FIG.mkdir(parents=True, exist_ok=True)
 
@@ -409,6 +636,7 @@ def main() -> None:
             OUT_CONTINENT_DIR / f"population_by_elevation_pyramid_{slugify(continent)}.gif",
             title=f"{continent}, {YEAR}",
         )
+    render_continent_panel_gif(continent_data, OUT_CONTINENT_PANEL_GIF)
 
 
 if __name__ == "__main__":

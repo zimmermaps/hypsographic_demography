@@ -4,39 +4,12 @@
 [![Citation](https://img.shields.io/badge/citation-CITATION.cff-green.svg)](CITATION.cff)
 
 <p align="center">
-  <img src="outputs/figures/population_by_elevation_pyramid.gif" alt="Animated 2025 global population pyramid by descending elevation threshold" width="100%">
+  <img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_continents_6panel.gif" alt="Animated 2025 population pyramids by descending elevation threshold for six continents" width="100%">
 </p>
 
 This repository supports the manuscript **“Hypsographic Demography Revisited: Age Structure and Population Change by Elevation.”**. It contains compact derived data and figure-reproduction notebooks for the manuscript.
 
 Summary statistics show that that **50.3% of the 2025 global population lived at or below 150 m elevation**. By broad age group, the corresponding shares were **44.9%** for ages 0-14, **51.4%** for ages 15-64, and **56.6%** for ages 65+.
-
-<table align="center" cellpadding="0" cellspacing="0" border="0">
-  <tr>
-    <td align="center" width="50%">
-      <img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_africa.gif" alt="Africa" width="100%">
-    </td>
-    <td align="center" width="50%">
-      <img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_asia.gif" alt="Asia" width="100%">
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="50%">
-      <img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_europe.gif" alt="Europe" width="100%">
-    </td>
-    <td align="center" width="50%">
-      <img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_north_america.gif" alt="North America" width="100%">
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="50%">
-      <img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_oceania.gif" alt="Oceania" width="100%">
-    </td>
-    <td align="center" width="50%">
-      <img src="outputs/figures/population_by_elevation_continents/population_by_elevation_pyramid_south_america.gif" alt="South America" width="100%">
-    </td>
-  </tr>
-</table>
 
 ## Repository Contents
 
@@ -55,9 +28,10 @@ Summary statistics show that that **50.3% of the 2025 global population lived at
 - Figure 2: `outputs/figures/fig2_elevation_settlement_stats.{png,pdf}`
 - Figure 3: `outputs/figures/fig3_highland_change_map.{png,pdf,svg}`
 - Companion GIF: `outputs/figures/population_by_elevation_pyramid.gif`
-- Continent companion GIFs: `outputs/figures/population_by_elevation_continents/`
+- Continent companion GIFs, including the six-panel figure: `outputs/figures/population_by_elevation_continents/`
 - Threshold table: `outputs/tables/population_by_elevation_threshold_summary.csv`
 - Threshold-by-age table: `outputs/tables/population_by_elevation_threshold_age_summary.csv`
+- Regional threshold table: `outputs/tables/population_by_elevation_threshold_region_summary.csv`
 - Manuscript value lookup: `outputs/tables/key_values_for_manuscript.csv`
 
 ## Data Sources

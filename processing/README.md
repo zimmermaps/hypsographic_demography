@@ -22,8 +22,10 @@ These scripts are deliberately minimal. They are meant to document the sequence 
 3. `03_prepare_settlement_attribution.py`: documents GHS-SMOD alignment, the six settlement classes, static_2025 attribution for the main figures, and dynamic attribution for the diagnostic comparison.
 4. `04_build_analysis_tables.py`: checks the materialized Dataset S1 and summarizes the logical tables used by the reproduction notebook.
 5. `05_package_supplementary_datasets.py`: packages the public Dataset S1 and sample Dataset S2 CSV folders from the derived table outputs.
-6. `06_plot_fig3_highland_change_map.py`: plots the production Figure 3 inhabited-highland population-change map from country elevation-zone GeoParquet inputs.
-7. `07_plot_population_elevation_pyramid_gif.py`: generates the production population-by-elevation companion GIF embedded in the README plus the per-continent GIFs in `outputs/figures/population_by_elevation_continents/`.
+6. `build_dataset_s2_country_exclusion_sensitivity.py`: builds the compact Dataset S2 selected country-exclusion sensitivity table and its small release ingredients table.
+7. `build_population_elevation_threshold_region_summary.py`: extends the companion threshold summary to Global plus broad regions/continents.
+8. `06_plot_fig3_highland_change_map.py`: plots the production Figure 3 inhabited-highland population-change map from country elevation-zone GeoParquet inputs.
+9. `07_plot_population_elevation_pyramid_gif.py`: generates the production population-by-elevation companion GIF embedded in the README plus the per-continent and six-panel continent GIFs in `outputs/figures/population_by_elevation_continents/`.
 
 ## Why this is lightweight
 
