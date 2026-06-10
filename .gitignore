@@ -1,6 +1,7 @@
 .venv/
 __pycache__/
 **/__pycache__/
+outputs/.matplotlib-cache/
 .ipynb_checkpoints/
 *.executed.ipynb
 .DS_Store
