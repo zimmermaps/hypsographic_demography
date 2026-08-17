@@ -36,4 +36,5 @@ hypsographic_demography_download/
 *.synctex.gz
 *.toc
 data/fact_population_by_integer_elevation_age_sex_2015_2025.parquet
+data/v1/
 documents/

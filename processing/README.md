@@ -1,34 +1,20 @@
-# Processing Workflow
+# Processing and figure code
 
-The files in this directory are provenance scripts for the paper, not a complete production pipeline. They record the data-preparation steps used to make Dataset S1 and keep the manuscript repository understandable without carrying the large gridded workflow.
+The public workflow is intentionally lightweight. The main notebook reads the retained publication tables and writes the three final PDFs; it does not rerun the large raster extraction.
 
-The full extraction was developed in the archived/source processing repository and requires large public source datasets that are not included here:
+## Manuscript workflow
 
-- WorldPop Global 2 annual age-sex population rasters.
-- GMTED2010 mean elevation at 30 arc-second resolution.
-- GHS-SMOD R2023A settlement-class rasters.
-- Country boundary layers used in the full source workflow.
+- `plot_fig2.py`: plots `figures/fig2.pdf` from `data/figure_data/fig2_elevation_settlement_age_shares.csv`.
+- `plot_fig3.py`: plots `figures/fig3.pdf` from the retained regional table and map layers.
+- `06_plot_fig3_highland_change_map.py`: shared Robinson-projection and GeoParquet utilities used by `plot_fig3.py`.
+- `build_within_country_age_structure_2025.py`: optional provenance rebuild of the 48-country 2025 age-structure table when the large local processed age-sex parquet is available.
 
-The figure notebook does not need those files. It reads the compact manuscript data products in `data/` and reproduces the three manuscript figures directly.
+Figure 1 remains in `notebooks/01_reproduce_figures.ipynb` because its four coordinated panels share notebook-level layout code. The same notebook invokes the Figure 2 and Figure 3 scripts and verifies headline country comparisons.
 
-## What the scripts are
+## Provenance
 
-These scripts are deliberately minimal. They are meant to document the sequence of operations, key definitions, and analysis choices for this paper. They should be read as executable notes or pseudocode-style provenance, not as a turnkey geospatial processing system.
+Scripts `01_prepare_static_layers.py` through `04_build_analysis_tables.py` document the original sequence: align elevation and settlement layers, extract age-sex population, apply static-2025 settlement attribution, and assemble analysis tables. They require public source data that are not bundled here and are not part of the simple figure-reproduction command.
 
-## Workflow order
+`07_plot_population_elevation_pyramid_gif.py` is the optional renderer for the preserved communication assets in `assets/`. It requires the larger local global-and-continent integer-elevation table excluded from version control.
 
-1. `01_prepare_static_layers.py`: documents alignment of GMTED2010 elevation to the WorldPop grid, meter rounding, native elevation bands, and the six manuscript elevation groups.
-2. `02_extract_population_by_grid.py`: documents extraction of WorldPop annual age-sex population by aligned grid attributes and aggregation to `0-14`, `15-64`, and `65+`.
-3. `03_prepare_settlement_attribution.py`: documents GHS-SMOD alignment, the six settlement classes, static_2025 attribution for the main figures, and dynamic attribution for the diagnostic comparison.
-4. `04_build_analysis_tables.py`: checks the materialized Dataset S1 and summarizes the logical tables used by the reproduction notebook.
-5. `05_package_supplementary_datasets.py`: packages the public Dataset S1 and sample Dataset S2 CSV folders from the derived table outputs.
-6. `build_dataset_s2_country_exclusion_sensitivity.py`: builds the compact Dataset S2 selected country-exclusion sensitivity table and its small release ingredients table.
-7. `build_population_elevation_threshold_region_summary.py`: extends the companion threshold summary to Global plus broad regions/continents.
-8. `06_plot_fig3_highland_change_map.py`: plots the production Figure 3 inhabited-highland population-change map from country elevation-zone GeoParquet inputs.
-9. `07_plot_population_elevation_pyramid_gif.py`: generates the production population-by-elevation companion GIF embedded in the README plus the per-continent and six-panel continent GIFs in `outputs/figures/population_by_elevation_continents/`.
-
-## Why this is lightweight
-
-The manuscript figures use already aggregated analysis tables. Re-running the full raster workflow would require hundreds of source rasters, grid templates, and intermediate files that are too large for this repository. Keeping only the compact Dataset S1 plus these provenance scripts makes figure reproduction simple while still documenting how the analysis-ready tables were built.
-
-For full production reruns, start from the archived/source processing repository and the raw WorldPop, GMTED2010, and GHS-SMOD inputs listed in `config_notes.md`.
+The exact source-product choices and category definitions are recorded in `config_notes.md` and `data/README.md`.

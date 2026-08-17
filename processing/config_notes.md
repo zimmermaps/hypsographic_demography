@@ -13,5 +13,5 @@ Main conventions:
 - Elevation is aligned to the WorldPop grid and rounded to integer meters before band assignment.
 - Continuous elevation is resampled bilinearly.
 - Categorical settlement classes are resampled by nearest neighbor.
-- Static_2025 attribution holds 2025 classes fixed for 2015-2025 change summaries.
+- Static_2025 attribution holds 2025 classes fixed for 2015–2025 change summaries.
 - Dynamic attribution allows classes to vary by year and is used only as a diagnostic in this paper.

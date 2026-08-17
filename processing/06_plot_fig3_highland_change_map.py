@@ -26,12 +26,16 @@ from matplotlib.path import Path as MplPath
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUT_COUNTRY_CHANGE = ROOT / "data" / "fig3_highland_change_polygons.geoparquet"
-INPUT_COUNTRY_ELEVATION = ROOT / "data" / "country_elevation_group_polygons.geoparquet"
-FIG_DIR = ROOT / "outputs" / "figures"
-TAB_DIR = ROOT / "outputs" / "tables"
+INPUT_COUNTRY_ELEVATION = (
+    ROOT / "data" / "figure_data" / "fig3_country_elevation_groups.geoparquet"
+)
+FIG_DIR = ROOT / "figures"
+TAB_DIR = ROOT / "data" / "figure_data"
 FIG_DIR.mkdir(parents=True, exist_ok=True)
 TAB_DIR.mkdir(parents=True, exist_ok=True)
-NATURAL_EARTH_ADMIN0 = ROOT / "data" / "natural_earth_admin0_110m.geojson"
+NATURAL_EARTH_ADMIN0 = (
+    ROOT / "data" / "figure_data" / "fig3_natural_earth_admin0_110m.geojson"
+)
 
 HIGHLAND_BANDS = ["1500-2499m", "2500-3499m"]
 GROWTH_FIELD = "pop_total_pct_change_2015_2025"

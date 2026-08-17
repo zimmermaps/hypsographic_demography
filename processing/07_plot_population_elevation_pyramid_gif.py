@@ -1,6 +1,6 @@
 """Generate the production elevation-threshold population-pyramid GIF.
 
-This writes outputs/figures/population_by_elevation_pyramid.gif, which is
+This writes assets/population_by_elevation_pyramid.gif, which is
 embedded at the top of the public README.
 """
 
@@ -20,7 +20,7 @@ from matplotlib.ticker import FuncFormatter, FixedLocator, MaxNLocator
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-FIG = ROOT / "outputs" / "figures"
+FIG = ROOT / "assets"
 
 INPUT_POPULATION_BY_ELEVATION = DATA / "fact_population_by_integer_elevation_age_sex_2015_2025.parquet"
 OUT_GIF = FIG / "population_by_elevation_pyramid.gif"
@@ -54,7 +54,7 @@ ELEVATION_BINS = [
     ("500-1,499 m", 500, 1500, "#F8EFC5"),
     ("1,500-2,499 m", 1500, 2500, "#F2D985"),
     ("2,500-3,499 m", 2500, 3500, "#EDB860"),
-    (">=3,500 m", 3500, MAX_ELEV_M, "#F3A08A"),
+    ("≥3,500 m", 3500, MAX_ELEV_M, "#F3A08A"),
 ]
 ELEVATION_BOUNDARIES_M = [100, 500, 1500, 2500, 3500]
 UPPER_TAIL_FRAMES = 18
