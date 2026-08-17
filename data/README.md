@@ -13,7 +13,7 @@ This directory contains compact, derived data for the manuscript. Large WorldPop
 - `figure_data/fig3_natural_earth_admin0_110m.geojson`: Natural Earth boundary context used in Figure 3A.
 - `figure_data/headline_manuscript_values.csv`: lookup table for reported headline values.
 
-`dataset_s1_hypsographic_demography.csv` is the retained master tidy table from which the earlier figure summaries were assembled. `global_integer_elevation_age_sex_2015_2025.parquet` is the compact global integer-elevation table retained for provenance and optional threshold calculations.
+`dataset_s1_hypsographic_demography.csv` is the retained master tidy table from which the earlier figure summaries were assembled. The smaller `fig1_elevation_profile_2025.csv` replaces the earlier global integer-elevation parquet in the public Git payload.
 
 ## Country comparisons
 

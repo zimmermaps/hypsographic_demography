@@ -1,9 +1,10 @@
 .venv/
 __pycache__/
 **/__pycache__/
-outputs/.matplotlib-cache/
+outputs/
 .ipynb_checkpoints/
 *.executed.ipynb
+notebooks/*.html
 .DS_Store
 **/.DS_Store
 raw_data/
@@ -22,6 +23,12 @@ hypsographic_demography_download/
 *.env
 .env
 .vscode/
+.codex/
+.agents/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
 
 # LaTeX build products
 *.aux
@@ -35,6 +42,22 @@ hypsographic_demography_download/
 *.run.xml
 *.synctex.gz
 *.toc
-data/fact_population_by_integer_elevation_age_sex_2015_2025.parquet
+data/*.parquet
 data/v1/
+data/raw/
+data/intermediate/
+data/processed/
+data/downloads/
+data/*.xlsx
 documents/
+
+# Only the three final manuscript PDFs belong in version control.
+figures/*
+!figures/fig1.pdf
+!figures/fig2.pdf
+!figures/fig3.pdf
+
+# Communication assets are GIFs; ignore local render previews.
+assets/**/*.png
+assets/**/*.pdf
+assets/**/*.svg
