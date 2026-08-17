@@ -321,7 +321,7 @@ def main() -> None:
     qa_checks(result)
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     result.to_csv(OUTPUT, index=False, float_format="%.10f")
-    print(f"Wrote {OUTPUT}")
+    print(f"Wrote {OUTPUT.relative_to(ROOT)}")
     print_results_summary(summarize(result))
 
 

@@ -6,10 +6,16 @@ embedded at the top of the public README.
 
 from __future__ import annotations
 
+import os
 import re
 from pathlib import Path
 
+os.environ.setdefault("MPLCONFIGDIR", str(Path("/tmp") / "matplotlib-hypso-gif"))
+
 import matplotlib as mpl
+
+mpl.use("Agg")
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd

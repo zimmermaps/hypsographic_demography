@@ -14,7 +14,7 @@ def main() -> None:
     dataset = root / "data" / "dataset_s1_hypsographic_demography.csv"
     if dataset.exists():
         df = pd.read_csv(dataset)
-        print(f"Dataset S1 exists: {dataset}")
+        print(f"Dataset S1 exists: {dataset.relative_to(root)}")
         print(df.groupby("table_name").size())
     else:
         print("Dataset S1 is not present. Build it from the analysis-ready release tables.")

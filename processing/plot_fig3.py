@@ -24,9 +24,8 @@ from matplotlib.patches import Patch, PathPatch
 
 ROOT = Path(__file__).resolve().parents[1]
 FIG_DIR = ROOT / "figures"
-TAB_DIR = ROOT / "data" / "figure_data"
+FIGURE_DATA_DIR = ROOT / "data" / "figure_data"
 FIG_DIR.mkdir(parents=True, exist_ok=True)
-TAB_DIR.mkdir(parents=True, exist_ok=True)
 
 FIG3_SCRIPT = ROOT / "processing" / "06_plot_fig3_highland_change_map.py"
 FIG3_SPEC = importlib.util.spec_from_file_location("fig3_map_utils", FIG3_SCRIPT)
@@ -37,7 +36,7 @@ sys.modules[FIG3_SPEC.name] = fig3
 FIG3_SPEC.loader.exec_module(fig3)
 
 OUTPUT_STEM = "fig3"
-INPUT_REGIONAL_GROWTH = TAB_DIR / "fig3_region_elevation_growth.csv"
+INPUT_REGIONAL_GROWTH = FIGURE_DATA_DIR / "fig3_region_elevation_growth.csv"
 FIGURE_WIDTH_IN = 7.50
 FIGURE_HEIGHT_IN = 7.30
 NORTH_CLIP_LAT = 90
@@ -320,7 +319,8 @@ def offset_polyline(points: np.ndarray, distance: float) -> np.ndarray:
 def load_regional_growth() -> pd.DataFrame:
     if not INPUT_REGIONAL_GROWTH.exists():
         raise FileNotFoundError(
-            f"Regional Figure 3 table not found: {INPUT_REGIONAL_GROWTH}"
+            "Regional Figure 3 table not found: "
+            f"{INPUT_REGIONAL_GROWTH.relative_to(ROOT)}"
         )
     regional = pd.read_csv(INPUT_REGIONAL_GROWTH)
     expected = len(REGION_ORDER) * len(ELEVATION_ORDER)

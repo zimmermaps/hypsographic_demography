@@ -5,9 +5,7 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
-os.environ.setdefault(
-    "MPLCONFIGDIR", str(Path("/tmp") / "matplotlib-hypso-fig2-5")
-)
+os.environ.setdefault("MPLCONFIGDIR", str(Path("/tmp") / "matplotlib-hypso-fig2"))
 
 import matplotlib as mpl
 
@@ -67,7 +65,9 @@ def configure_style() -> None:
 
 def load_data() -> pd.DataFrame:
     if not INPUT.exists():
-        raise FileNotFoundError(f"Required Figure 2 table not found: {INPUT}")
+        raise FileNotFoundError(
+            f"Required Figure 2 table not found: {INPUT.relative_to(ROOT)}"
+        )
 
     summary = pd.read_csv(INPUT)
 

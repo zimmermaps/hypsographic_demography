@@ -15,6 +15,6 @@ Figure 1 remains in `notebooks/01_reproduce_figures.ipynb` because its four coor
 
 Scripts `01_prepare_static_layers.py` through `04_build_analysis_tables.py` document the original sequence: align elevation and settlement layers, extract age-sex population, apply static-2025 settlement attribution, and assemble analysis tables. They require public source data that are not bundled here and are not part of the simple figure-reproduction command.
 
-`07_plot_population_elevation_pyramid_gif.py` is the optional renderer for the preserved communication assets in `assets/`. It requires the larger local global-and-continent integer-elevation table excluded from version control.
+`07_plot_population_elevation_pyramid_gif.py` is the optional renderer for the preserved communication assets in `assets/`. It reads the excluded local table `data/fact_population_by_integer_elevation_age_sex_2015_2025.parquet`; the companion notebook writes diagnostic tables to the ignored directory `outputs/population_by_elevation/`.
 
 The exact source-product choices and category definitions are recorded in `config_notes.md` and `data/README.md`.

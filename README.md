@@ -42,22 +42,6 @@ The analysis combines four public data products:
 
 The retained CSV and GeoParquet files are aggregated publication data. They do not contain or replace the original WorldPop, GMTED2010, or GHS-SMOD grids. Population changes are modeled changes in the gridded population products, not direct observations of births, deaths, or migration.
 
-## Setup and reproduction
-
-From the repository root:
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-MPLBACKEND=Agg MPLCONFIGDIR=/tmp/matplotlib-hypsographic \
-  python -m nbconvert --to notebook --execute notebooks/01_reproduce_figures.ipynb \
-  --output /tmp/01_reproduce_figures.executed.ipynb \
-  --ExecutePreprocessor.timeout=1200
-```
-
-This command reads only retained repository data and writes exactly `figures/fig1.pdf`, `figures/fig2.pdf`, and `figures/fig3.pdf`. The executed notebook is written outside the repository so cell outputs do not create version-control noise.
-
 ## Files behind the results
 
 | Result | Retained source data | Plot or analysis code |
@@ -75,6 +59,6 @@ Lowlands are `<500 m`; inhabited highlands are `1,500–3,499 m`. The within-cou
 
 ## Companion animation
 
-The GIFs in `assets/` are intentional communication products and are not part of the three-figure manuscript workflow. `notebooks/02_population_by_elevation_table_and_gif.ipynb` and `processing/07_plot_population_elevation_pyramid_gif.py` document their optional regeneration; this requires the larger local continent-by-elevation processed table, which is excluded from version control.
+The GIFs in `assets/` are intentional communication products and are not part of the three-figure manuscript workflow. `notebooks/02_population_by_elevation_table_and_gif.ipynb` and `processing/07_plot_population_elevation_pyramid_gif.py` regenerate them from the optional local input `data/fact_population_by_integer_elevation_age_sex_2015_2025.parquet`, which is excluded from version control. The notebook writes its diagnostic threshold tables to the ignored directory `outputs/population_by_elevation/`; all GIFs are written under `assets/`.
 
 Please use [CITATION.cff](CITATION.cff) when citing the repository. Code is released under the MIT License; derived data are released under CC BY 4.0 as described in [LICENSE.md](LICENSE.md).
