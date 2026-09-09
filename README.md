@@ -1,5 +1,7 @@
 # Hypsographic Demography: Data and Reproducible Analysis Code
 
+[![DOI](https://zenodo.org/badge/1249424132.svg)](https://doi.org/10.5281/zenodo.22680983)
+
 <p align="center">
   <img src="assets/population_by_elevation_continents/population_by_elevation_pyramid_continents_6panel.gif" alt="Animated 2025 population pyramids by descending elevation threshold for six continents" width="100%">
 </p>
