@@ -1,10 +1,30 @@
 cff-version: 1.2.0
 message: "If you use this repository, please cite it using the metadata below."
-title: "Hypsographic Demography Revisited: Analysis Code and Reproducible Workflows"
+title: "Hypsographic Demography: Data and Reproducible Analysis Code"
 type: software
 authors:
   - family-names: Zimmer
     given-names: Andrew
+    affiliation: Oak Ridge National Laboratory
+    orcid: "https://orcid.org/0000-0001-7683-8713"
+abstract: >-
+  Derived data and reproducible analysis code supporting the manuscript
+  ‘Hypsographic Demography: Global Population Structure and Change Across
+  Elevation Gradients.’ The archive contains processed data underlying the
+  manuscript figures and principal results, within-country comparisons,
+  sensitivity analyses, Jupyter notebooks, Python processing and plotting
+  scripts, and final manuscript figures. Large source population, elevation,
+  and settlement rasters are not redistributed and are referenced to their
+  original public sources.
+keywords:
+  - hypsographic demography
+  - population
+  - elevation
+  - age structure
+  - settlement
+  - human geography
+  - global change
+  - reproducible research
 repository-code: "https://github.com/zimmermaps/hypsographic_demography"
-date-released: "2026-05-25"
-version: "0.1.0"
+date-released: "2026-09-09"
+version: "1.0.0"

@@ -288,8 +288,6 @@ def render_gif(data: dict, out_gif: Path, title: str, x_max: float | None = None
 
     print(f"GIF: {out_gif.relative_to(ROOT)}")
     print(f"Frames: {len(thresholds):,}; duration: {len(thresholds) / FPS:.1f} s")
-    print("First 15 thresholds:", ", ".join(f"{x:,.0f}" for x in thresholds[:15]))
-    print("Last 25 thresholds:", ", ".join(f"{x:,.0f}" for x in thresholds[-25:]))
 
     fig = plt.figure(figsize=(10.0, 6.2))
     gs = GridSpec(1, 2, width_ratios=[1.08, 0.92], wspace=0.24, figure=fig)

@@ -166,6 +166,7 @@ def draw_panel(
         ha="left",
         va="bottom",
         fontsize=8.8,
+        fontfamily="DejaVu Sans",
         fontweight="bold",
     )
     ax.set_xticks(np.arange(len(SETTLEMENT_ORDER)))
@@ -338,7 +339,7 @@ def draw_figure(data: pd.DataFrame) -> plt.Figure:
             norm=panel["norm"],
             colorbar_label=panel["label"],
             ticks=panel["ticks"],
-            panel=chr(ord("A") + index),
+            panel=chr(ord("a") + index),
             column=column,
             population=(index == 0),
             add_colorbar=True,

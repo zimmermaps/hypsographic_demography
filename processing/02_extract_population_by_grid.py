@@ -1,4 +1,4 @@
-"""Extract WorldPop age-sex population by aligned grid attributes.
+"""Record the WorldPop extraction and age groups used upstream.
 
 The paper uses WorldPop Global 2 annual age-sex estimates. Age codes are kept
 native during extraction, then summarized to broad manuscript age groups:
@@ -15,7 +15,7 @@ AGE_GROUPS = {
 
 def main() -> None:
     notes = """
-    Production step:
+    Upstream workflow:
     1. Read WorldPop annual age-sex rasters on the master grid.
     2. Join aligned elevation, country, and settlement attributes by cell.
     3. Sum population by year, age, sex, elevation band, and settlement class.

@@ -1,11 +1,4 @@
-"""Prepare elevation classes for the hypsographic demography analysis.
-
-This script documents the static-layer step used upstream of Dataset S1.
-It expects raw GMTED2010 elevation and a WorldPop template grid. The large
-source rasters are not included in this paper repository.
-"""
-
-from pathlib import Path
+"""Record the elevation classes and alignment used upstream of Dataset S1."""
 
 
 ELEVATION_GROUPS = [
@@ -28,13 +21,13 @@ def assign_elevation_group(elevation_m: float) -> str:
 
 def main() -> None:
     notes = """
-    Production step:
+    Upstream workflow:
     1. Reproject/resample GMTED2010 mean elevation to the WorldPop grid.
     2. Use bilinear resampling for elevation.
     3. Round aligned elevation to integer meters.
     4. Assign native elevation bands and the six manuscript groups.
 
-    See the full source repository for raster execution details.
+    The required source rasters are not distributed with this repository.
     """
     print(notes.strip())
 

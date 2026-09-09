@@ -1,4 +1,4 @@
-"""Prepare GHS-SMOD settlement attribution for the paper analysis.
+"""Record the GHS-SMOD settlement attribution used upstream.
 
 The main figures use static_2025 attribution for settlement-specific growth.
 Dynamic attribution is retained only as a comparison diagnostic.
@@ -17,7 +17,7 @@ SETTLEMENT_CLASSES = [
 
 def main() -> None:
     notes = """
-    Production step:
+    Upstream workflow:
     1. Align GHS-SMOD R2023A classes to the WorldPop grid.
     2. Use nearest-neighbor resampling for settlement classes.
     3. Build static_2025 attribution by applying 2025 classes to all years.

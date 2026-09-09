@@ -1,13 +1,10 @@
-# Hypsographic Demography Revisited
-
-[![License](https://img.shields.io/badge/license-MIT%20%2B%20CC%20BY%204.0-blue.svg)](LICENSE.md)
-[![Citation](https://img.shields.io/badge/citation-CITATION.cff-green.svg)](CITATION.cff)
+# Hypsographic Demography: Data and Reproducible Analysis Code
 
 <p align="center">
   <img src="assets/population_by_elevation_continents/population_by_elevation_pyramid_continents_6panel.gif" alt="Animated 2025 population pyramids by descending elevation threshold for six continents" width="100%">
 </p>
 
-This repository supports the manuscript **“Hypsographic Demography Revisited: Age Structure and Population Change by Elevation.”** It contains the compact derived data, analysis checks, and plotting code needed to reproduce the three final manuscript figures and headline results. The large source rasters are intentionally not redistributed.
+This repository supports the manuscript **“Hypsographic Demography: Global Population Structure and Change Across Elevation Gradients.”** It contains derived publication data, validation checks, and code to reproduce the three final manuscript figures, principal results, and sensitivity analyses. The large WorldPop, GMTED2010, and GHS-SMOD source rasters are not redistributed.
 
 ## Repository structure
 
@@ -42,6 +39,18 @@ The analysis combines four public data products:
 
 The retained CSV and GeoParquet files are aggregated publication data. They do not contain or replace the original WorldPop, GMTED2010, or GHS-SMOD grids. Population changes are modeled changes in the gridded population products, not direct observations of births, deaths, or migration.
 
+## Reproduce the manuscript outputs
+
+Create an isolated environment, install the pinned dependencies, and execute the main notebook from the repository root:
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python -m nbconvert --to notebook --execute notebooks/01_reproduce_figures.ipynb --output /tmp/01_reproduce_figures.executed.ipynb --ExecutePreprocessor.timeout=1200
+```
+
+The workflow writes `figures/fig1.pdf`, `figures/fig2.pdf`, and `figures/fig3.pdf`, verifies the reported values, and prints the sensitivity summaries.
+
 ## Files behind the results
 
 | Result | Retained source data | Plot or analysis code |
@@ -55,10 +64,12 @@ The retained CSV and GeoParquet files are aggregated publication data. They do n
 | Settlement sensitivity | `data/sensitivity/settlement_class_sensitivity.csv` | retained analysis output |
 | Other robustness checks | `data/sensitivity/robustness_checks.csv` | retained analysis output |
 
-Lowlands are `<500 m`; inhabited highlands are `1,500–3,499 m`. The within-country comparisons include the same 48 countries with at least 100,000 people in both zones in 2025. Age shares are ratios calculated after aggregating population counts within country-zone combinations, not averages of grid-cell percentages.
+Lowlands are `<500 m`; primary inhabited highlands are `1,500–3,499 m`. The within-country comparisons include the same 48 countries with at least 100,000 people in both zones in 2025. Age shares are ratios calculated after aggregating population counts within country-zone combinations, not averages of grid-cell percentages.
+
+The main notebook summarizes sensitivity to alternative highland thresholds, country eligibility cutoffs from 50,000 to 1 million people per zone, and epoch-specific settlement classes.
 
 ## Companion animation
 
-The GIFs in `assets/` are intentional communication products and are not part of the three-figure manuscript workflow. `notebooks/02_population_by_elevation_table_and_gif.ipynb` and `processing/07_plot_population_elevation_pyramid_gif.py` regenerate them from the optional local input `data/fact_population_by_integer_elevation_age_sex_2015_2025.parquet`, which is excluded from version control. The notebook writes its diagnostic threshold tables to the ignored directory `outputs/population_by_elevation/`; all GIFs are written under `assets/`.
+The GIFs in `assets/` are companion communication products, separate from the three-figure manuscript workflow. `notebooks/02_population_by_elevation_table_and_gif.ipynb` and `processing/07_plot_population_elevation_pyramid_gif.py` regenerate them from the optional local input `data/fact_population_by_integer_elevation_age_sex_2015_2025.parquet`, which is excluded from version control. The notebook writes threshold tables to the ignored directory `outputs/population_by_elevation/`; all GIFs are written under `assets/`.
 
 Please use [CITATION.cff](CITATION.cff) when citing the repository. Code is released under the MIT License; derived data are released under CC BY 4.0 as described in [LICENSE.md](LICENSE.md).

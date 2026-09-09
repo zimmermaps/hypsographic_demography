@@ -1,6 +1,6 @@
 # Publication data
 
-This directory contains compact, derived data for the manuscript. Large WorldPop, GMTED2010, and GHS-SMOD source rasters are not redistributed.
+This directory contains derived data for the manuscript. Large WorldPop, GMTED2010, and GHS-SMOD source rasters are not redistributed.
 
 ## Figure data
 
@@ -13,20 +13,22 @@ This directory contains compact, derived data for the manuscript. Large WorldPop
 - `figure_data/fig3_natural_earth_admin0_110m.geojson`: Natural Earth boundary context used in Figure 3A.
 - `figure_data/headline_manuscript_values.csv`: lookup table for reported headline values.
 
-`dataset_s1_hypsographic_demography.csv` is the retained master tidy table from which the earlier figure summaries were assembled. The smaller `fig1_elevation_profile_2025.csv` replaces the earlier global integer-elevation parquet in the public Git payload.
+`dataset_s1_hypsographic_demography.csv` is the master tidy analysis table. The smaller `fig1_elevation_profile_2025.csv` is tracked in place of the global integer-elevation parquet.
 
 ## Country comparisons
 
 - `country_comparisons/within_country_growth.csv`: one row per country for the lowland/highland 2015–2025 growth comparison.
 - `country_comparisons/within_country_age_structure_2025.csv`: one row per country with youth and older-age counts, shares, and highland-minus-lowland differences.
-- `country_comparisons/country_zone_counts_2015_2025.csv`: compact country-zone counts retained to document and reconcile the growth sample.
+- `country_comparisons/country_zone_counts_2015_2025.csv`: country-zone counts used to define and verify the growth sample.
 
-Both headline comparisons use lowlands `<500 m`, highlands `1,500–3,499 m`, and the same 48 countries with at least 100,000 people in both zones in 2025. Age shares are calculated from population counts aggregated within each country-zone before division; grid-cell percentages are never averaged.
+Both comparisons use lowlands `<500 m`, primary inhabited highlands `1,500–3,499 m`, and the same 48 countries with at least 100,000 people in both zones in 2025. Age shares are calculated from population counts aggregated within each country-zone before division; grid-cell percentages are never averaged.
 
 ## Sensitivity data
 
 - `sensitivity/settlement_class_sensitivity.csv`: dynamic versus static-2025 settlement attribution by elevation and settlement class.
 - `sensitivity/robustness_checks.csv`: global alternative-threshold and settlement-stratified checks.
+
+The main notebook derives the reported summaries from these tables for alternative highland thresholds (`≥1,500 m`, `≥2,500 m`, and `≥3,500 m`), country eligibility cutoffs from 50,000 to 1 million people per zone, and static-versus-epoch-specific settlement attribution.
 
 ## Conventions
 

@@ -88,15 +88,55 @@ ABSOLUTE_AX_POSITION = (0.045, 0.145, 0.455, 0.360)
 GROWTH_AX_POSITION = (0.515, 0.145, 0.455, 0.360)
 ELEVATION_LEGEND_Y = 0.528
 CONTINENT_LEGEND_Y = 0.491
-LOWER_PANEL_LABEL_Y = 0.560
-LOWER_PANEL_TITLE_Y = 0.533
 LOWER_COLORBAR_ORIENTATION = "vertical"
 MAP_LEGEND_LAYOUT = "right"
-MAP_TITLE_X = 0.375
 CONTINENT_HALO_WIDTH = 1.65
 CONTINENT_OUTLINE_WIDTH = 1.00
 SHARED_BORDER_SEPARATOR_WIDTH = 2.20
 CONTINENT_LEGEND_LINEWIDTH = 1.50
+COORDINATE_LABEL_COLOR = (0.22, 0.31, 0.35, 0.78)
+COORDINATE_LABEL_SIZE = 6.0
+COORDINATE_LABEL_BOX = {
+    "boxstyle": "square,pad=0.10",
+    "facecolor": OCEAN_COLOR,
+    "edgecolor": "none",
+    "alpha": 0.90,
+}
+
+
+def add_coordinate_labels(ax, projection) -> None:
+    """Add a minimal set of quiet latitude and longitude labels to the map."""
+    longitude_labels = [(-120, "120°W"), (0, "0°"), (120, "120°E")]
+    for longitude, label in longitude_labels:
+        x, y = projection.fn(longitude, projection.lat_min + 2.5)
+        ax.text(
+            float(x),
+            float(y),
+            label,
+            ha="center",
+            va="bottom",
+            fontsize=COORDINATE_LABEL_SIZE,
+            color=COORDINATE_LABEL_COLOR,
+            bbox=COORDINATE_LABEL_BOX,
+            zorder=9.2,
+        )
+
+    latitude_labels = [(-45, "45°S"), (0, "0°"), (45, "45°N")]
+    for latitude, label in latitude_labels:
+        x, y = projection.fn(projection.lon_min + 3.0, latitude)
+        if latitude == 0:
+            y = float(y) + 0.018
+        ax.text(
+            float(x),
+            float(y),
+            label,
+            ha="left",
+            va="bottom" if latitude == 0 else "center",
+            fontsize=COORDINATE_LABEL_SIZE,
+            color=COORDINATE_LABEL_COLOR,
+            bbox=COORDINATE_LABEL_BOX,
+            zorder=9.2,
+        )
 
 
 def load_continent_boundary_lines(project_fn) -> dict[str, list[np.ndarray]]:
@@ -337,6 +377,21 @@ def annotation_text_color(color) -> str:
     return "white" if luminance < 0.52 else "0.12"
 
 
+def add_panel_label(ax, label: str) -> None:
+    """Match the bold, top-left panel labels used in Figure 2."""
+    ax.text(
+        0.0,
+        1.025,
+        label,
+        transform=ax.transAxes,
+        ha="left",
+        va="bottom",
+        fontsize=8.8,
+        fontfamily="DejaVu Sans",
+        fontweight="bold",
+    )
+
+
 def draw_growth_matrix(
     fig,
     ax,
@@ -364,11 +419,11 @@ def draw_growth_matrix(
         rotation=36,
         ha="right",
         rotation_mode="anchor",
-        fontsize=6.2,
+        fontsize=6.8,
     )
     ax.tick_params(axis="x", top=False, labeltop=False, bottom=True, labelbottom=True, length=0, pad=2)
     ax.set_yticks(np.arange(len(matrix_elevation_order)))
-    ax.set_yticklabels([ELEVATION_LABELS[band] for band in matrix_elevation_order], fontsize=6.7)
+    ax.set_yticklabels([ELEVATION_LABELS[band] for band in matrix_elevation_order], fontsize=7.2)
     ax.tick_params(axis="y", length=0, pad=3)
 
     ax.set_xticks(np.arange(-0.5, len(REGION_ORDER), 1), minor=True)
@@ -386,10 +441,10 @@ def draw_growth_matrix(
             ax.text(
                 col,
                 row,
-                f"{value:+.1f}",
+                f"{value:.1f}",
                 ha="center",
                 va="center",
-                fontsize=6.3,
+                fontsize=7.0,
                 color=annotation_text_color(color),
             )
 
@@ -417,20 +472,20 @@ def draw_growth_matrix(
         )
     colorbar.set_ticks([0, 10, 20, 30])
     colorbar.set_ticklabels(["0%", "10%", "20%", "30%"])
-    colorbar.ax.tick_params(labelsize=6.7, length=2.5, width=0.55, pad=1.5)
+    colorbar.ax.tick_params(labelsize=7.1, length=2.5, width=0.55, pad=1.5)
     colorbar.outline.set_linewidth(0.45)
     colorbar.outline.set_edgecolor("0.4")
     if LOWER_COLORBAR_ORIENTATION == "vertical":
-        colorbar.ax.set_ylabel("Change (%)", fontsize=7.2, labelpad=4.0)
+        colorbar.ax.set_ylabel("Change (%)", fontsize=7.7, labelpad=4.0)
     else:
-        colorbar.ax.set_title("Change (%)", fontsize=7.2, pad=2.0)
+        colorbar.ax.set_title("Change (%)", fontsize=7.7, pad=2.0)
 
 
 def format_absolute_change(value_people: float) -> str:
     value_millions = value_people / 1e6
     if abs(value_millions) < 0.05:
-        return "<0.1M"
-    sign = "−" if value_millions < 0 else "+"
+        return "−<0.1M" if value_millions < 0 else "<0.1M"
+    sign = "−" if value_millions < 0 else ""
     if abs(value_millions) >= 100:
         magnitude = f"{abs(value_millions):.0f}"
     else:
@@ -473,11 +528,11 @@ def draw_absolute_change_matrix(
         rotation=36,
         ha="right",
         rotation_mode="anchor",
-        fontsize=6.2,
+        fontsize=6.8,
     )
     ax.tick_params(axis="x", top=False, labeltop=False, bottom=True, labelbottom=True, length=0, pad=2)
     ax.set_yticks(np.arange(len(matrix_elevation_order)))
-    ax.set_yticklabels([ELEVATION_LABELS[band] for band in matrix_elevation_order], fontsize=6.7)
+    ax.set_yticklabels([ELEVATION_LABELS[band] for band in matrix_elevation_order], fontsize=7.2)
     ax.tick_params(axis="y", length=0, pad=3)
 
     ax.set_xticks(np.arange(-0.5, len(REGION_ORDER), 1), minor=True)
@@ -499,7 +554,7 @@ def draw_absolute_change_matrix(
                 format_absolute_change(value_people),
                 ha="center",
                 va="center",
-                fontsize=5.9,
+                fontsize=6.6,
                 color=annotation_text_color(color),
             )
 
@@ -528,15 +583,15 @@ def draw_absolute_change_matrix(
     colorbar.set_ticks([0, 1, 10, 160])
     colorbar.set_ticklabels(["0", "1M", "10M", "160M"])
     colorbar.ax.minorticks_off()
-    colorbar.ax.tick_params(labelsize=6.1, length=2.5, width=0.55, pad=1.5)
+    colorbar.ax.tick_params(labelsize=6.8, length=2.5, width=0.55, pad=1.5)
     colorbar.outline.set_linewidth(0.45)
     colorbar.outline.set_edgecolor("0.4")
     if LOWER_COLORBAR_ORIENTATION == "vertical":
-        colorbar.ax.set_ylabel("Absolute change", fontsize=7.0, labelpad=4.0)
+        colorbar.ax.set_ylabel("Absolute change", fontsize=7.6, labelpad=4.0)
     else:
         colorbar.ax.set_title(
             "Absolute change",
-            fontsize=7.0,
+            fontsize=7.6,
             pad=2.0,
         )
 
@@ -688,23 +743,18 @@ def draw_map() -> None:
     map_ax.set_xlim(extent[0] - pad_x, extent[1] + pad_x)
     map_ax.set_ylim(extent[2] - pad_y, extent[3] + pad_y)
     map_ax.set_aspect("equal", adjustable="box")
+    add_coordinate_labels(map_ax, projection)
     map_ax.set_axis_off()
 
     draw_absolute_change_matrix(fig, absolute_ax, regional_growth)
     draw_growth_matrix(fig, growth_ax, regional_growth)
     growth_ax.tick_params(axis="y", labelleft=False)
-    absolute_center_x = (
-        absolute_ax.get_position().x0 + absolute_ax.get_position().x1
-    ) / 2
-    growth_center_x = (
-        growth_ax.get_position().x0 + growth_ax.get_position().x1
-    ) / 2
-    fig.text(MAP_TITLE_X, 0.985, "A", ha="center", va="top", fontsize=10.2, fontweight="bold")
-    fig.text(MAP_TITLE_X, 0.958, "Global elevation bands", ha="center", va="top", fontsize=8.9)
-    fig.text(absolute_center_x, LOWER_PANEL_LABEL_Y, "B", ha="center", va="top", fontsize=10.2, fontweight="bold")
-    fig.text(absolute_center_x, LOWER_PANEL_TITLE_Y, "Absolute population change, 2015–2025", ha="center", va="top", fontsize=8.6)
-    fig.text(growth_center_x, LOWER_PANEL_LABEL_Y, "C", ha="center", va="top", fontsize=10.2, fontweight="bold")
-    fig.text(growth_center_x, LOWER_PANEL_TITLE_Y, "Percent population change, 2015–2025", ha="center", va="top", fontsize=8.6)
+    map_ax.set_title("Global elevation bands", fontsize=9.2, pad=6)
+    absolute_ax.set_title("Absolute population change, 2015–2025", fontsize=9.2, pad=6)
+    growth_ax.set_title("Percent population change, 2015–2025", fontsize=9.2, pad=6)
+    add_panel_label(map_ax, "a")
+    add_panel_label(absolute_ax, "b")
+    add_panel_label(growth_ax, "c")
 
     handles = [
         Patch(facecolor=ELEVATION_COLORS[band], edgecolor="none", label=ELEVATION_LABELS[band])
@@ -717,14 +767,14 @@ def draw_map() -> None:
             bbox_to_anchor=(0.735, 0.915),
             ncol=1,
             frameon=False,
-            fontsize=6.8,
+            fontsize=7.2,
             handlelength=1.65,
             handleheight=1.10,
             labelspacing=0.42,
             handletextpad=0.45,
             borderaxespad=0.0,
             title="Elevation band",
-            title_fontsize=7.5,
+            title_fontsize=7.9,
         )
     else:
         elevation_legend = fig.legend(
@@ -761,13 +811,13 @@ def draw_map() -> None:
             bbox_to_anchor=(0.735, 0.765),
             ncol=1,
             frameon=False,
-            fontsize=6.8,
+            fontsize=7.2,
             handlelength=2.15,
             labelspacing=0.38,
             handletextpad=0.45,
             borderaxespad=0.0,
             title="Continent",
-            title_fontsize=7.5,
+            title_fontsize=7.9,
         )
     else:
         continent_legend = fig.legend(
