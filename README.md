@@ -1,6 +1,32 @@
-# Hypsographic Demography: Data and Reproducible Analysis Code
+# Hypsographic Demography: Global Population Structure and Change Across Elevation Gradients
 
+This repository contains the data and code supporting the manuscript
+*Hypsographic Demography: Global Population Structure and Change Across
+Elevation Gradients* and the Global Elevation–Settlement Demographic Dataset
+(GESD), version 1.
+
+## Paper
+
+Zimmer, A., Brooks, N., Gaughan, A. E., & Tuholske, C. (2026).
+*Hypsographic Demography: Global Population Structure and Change Across
+Elevation Gradients*. Earth's Future. Submitted.
+
+## Dataset
 [![DOI](https://zenodo.org/badge/1249424132.svg)](https://doi.org/10.5281/zenodo.22680983)
+
+Zimmer, A. (2026).
+*Global Elevation–Settlement Demographic Dataset (GESD), version 1*.
+Zenodo.
+https://doi.org/10.5281/zenodo.22680983
+
+## Code
+
+Zimmer, A. (2026).
+*Hypsographic Demography: Global Population Structure and Change Across
+Elevation Gradients*, version 1.0.0.
+GitHub.
+
+
 
 <p align="center">
   <img src="assets/population_by_elevation_continents/population_by_elevation_pyramid_continents_6panel.gif" alt="Animated 2025 population pyramids by descending elevation threshold for six continents" width="100%">
